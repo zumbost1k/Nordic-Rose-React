@@ -1,0 +1,95 @@
+.footer_black_square {
+    background: black;
+    color: white;
+    text-align: center;
+    margin-top: 87px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+.square_first_text {
+    position: absolute;
+    white-space: nowrap;
+    display: flex;
+    gap: 19px;
+    left: 50%;
+    transform: translateX(-40.5%);
+    padding-top: 22px;
+}
+
+.bold_text {
+    font-weight: bold;
+}
+
+.scroll_text {
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 20px;
+    line-height: 28px;
+}
+
+.bottom_rose {
+    padding-top: 153px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.lorem {
+    padding: 26px 44px 0px 44px;
+    padding-top: 26px;
+    font-family: 'New York Small';
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 140%;
+    max-width: 375px;
+}
+
+.links {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+}
+
+.links_padding {
+    padding-top: 32px;
+}
+
+.link {
+    font-family: 'SF Pro Text';
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 170%;
+    color: white;
+}
+
+.copy_text {
+    font-family: 'SF Pro Text';
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 140%;
+    padding: 64px 98px 32px 98px;
+    max-width: 374px;
+}
+
+@media (min-width:855px) {
+    .square_first_text {
+        left: 50%;
+        transform: translateX(-50.0%);
+    }
+
+    .scroll_text {
+        font-size: 22px;
+        letter-spacing: 0.1em;
+    }
+
+    .lorem {
+        font-size: 16px;
+        max-width: 482px;
+    }
+
+    .link {
+        font-size: 16px;
+    }
+}
