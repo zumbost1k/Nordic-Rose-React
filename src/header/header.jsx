@@ -1,5 +1,9 @@
 import './header.css';
 import React from 'react';
+let links = ['BLOG', 'ABOUT', 'LINKS', 'PROJECTS'];
+let linksList = links.map(function (link) {
+  return <a className="menu_link" href="">{link}</a>;
+})
 function Header() {
   return (
     <div>
@@ -14,10 +18,7 @@ function Header() {
           </h1>
         </div>
         <div className="desktop_menu">
-          <a href="" className="menu_link">BLOG</a>
-          <a href="" className="menu_link">ABOUT</a>
-          <a href="" className="menu_link">LINKS</a>
-          <a href="" className="menu_link">PROJECTS</a>
+          {linksList}
         </div>
         <div className="top_padding_burger">
           <img width="25" height="16" src="photos/burger.png" alt="burger" />

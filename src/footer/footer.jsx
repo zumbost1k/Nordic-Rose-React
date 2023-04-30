@@ -1,13 +1,15 @@
-
 import React from 'react';
 import './footer.css';
 
 class Footer extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {};
     }
     render() {
+        let links = ['Twitter', 'Linkedln', 'RSS'];
+        let linksList = links.map(function (link) {
+            return <li><a className="link" href="">{link}</a></li>;
+        })
         return (
             <div>
                 <footer className="footer_black_square">
@@ -35,9 +37,7 @@ class Footer extends React.Component {
                     </p>
                     <div className="links_padding">
                         <ul className="links">
-                            <li><a className="link" href="">Twitter</a></li>
-                            <li><a className="link" href="">Linkedln</a></li>
-                            <li><a className="link" href="">RSS</a></li>
+                            {linksList}
                         </ul>
                     </div>
 

@@ -55,7 +55,6 @@ function Photo({ item }) {
 class SectionPhoto extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {};
     }
     render() {
         return (
@@ -63,7 +62,7 @@ class SectionPhoto extends React.Component {
                 <section className="section_with_photo">
                     <h2 className="articles">All articles</h2>
                     <div className="photo">
-                        {photos.map((item) => (<div><Photo item={item} /></div>))}
+                        {photos.map((item) => (<Photo item={item} />))}
                     </div>
                 </section>
             </div>
