@@ -1,0 +1,69 @@
+.section_with_photo {
+    margin-top: 52px;
+    margin-left: auto;
+    margin-right: auto;
+    border-top: 2px solid black;
+    max-width: 640px;
+    text-align: center;
+    padding-top: 56px;
+    position: relative;
+}
+
+.photo {
+    max-width: 304px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.text_after_images {
+    font-family: 'SF Pro Display';
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 120%;
+    padding: 20px 11px 0px 11px;
+}
+
+.second_page_photos {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 42px;
+}
+
+.articles {
+    font-family: 'New York Extra Large';
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 38px;
+    margin-bottom: -13px;
+}
+@media (min-width:855px) {
+    .photo {
+        max-width: 640px;
+        flex-wrap: wrap;
+        height: 920px;
+        gap: 32px;
+        justify-content: space-between;
+    }
+
+    .attribute {
+        flex: 1;
+        max-width: 304px;
+        position: relative;
+        height: 338px;
+    }
+
+    .second_page_photos {
+        margin: 0px;
+    }
+
+    .text_after_images {
+        padding: 20px 0px 0px 0px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 282px;
+    }
+}
