@@ -58,7 +58,7 @@
 @media (min-width:1024px) {
     .photo {
         padding-top: 27px;
-        height: 800px;
+        height: 830px;
         flex-wrap: wrap;
         max-width: 1024px;
         gap: 28px;

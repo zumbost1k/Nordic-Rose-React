@@ -25,9 +25,9 @@ class Footer extends React.Component {
                     </div>
                     <div className="bottom_rose">
                         <picture>
-                            <source media="(max-width:854px)" width="245" height="35" srcset="photos/bottom_rose_mobile.png" />
-                            <source media="(min-width:854px)" width="300" height="40" srcset="photos/bottom_rose_mobile.png" />
-                            <img src="photos/bottom_rose_mobile.png" width="300" height="40" alt="NORDIC ROSE" />
+                            <source media="(max-width:854px)" width="245" height="35" srcset="/photos/bottom_rose_mobile.png" />
+                            <source media="(min-width:854px)" width="300" height="40" srcset="/photos/bottom_rose_mobile.png" />
+                            <img src="/photos/bottom_rose_mobile.png" width="300" height="40" alt="NORDIC ROSE" />
                         </picture>
                     </div>
                     <p className="lorem">

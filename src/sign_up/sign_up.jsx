@@ -6,10 +6,6 @@ class SignUp extends React.Component {
         super(props);
     }
     render() {
-        let links = ['Twitter', 'Linkedln', 'RSS'];
-        let linksList = links.map(function (link) {
-            return <li><a className="link" href="">{link}</a></li>;
-        })
         return (
             <div>
                 <section class="sign_up">
