@@ -47,6 +47,11 @@
     margin-bottom: -13px;
 }
 
+.decoration {
+    text-decoration: none;
+    color: black;
+}
+
 @media (min-width:855px) {
     .articles1 {
         margin-bottom: 40px;

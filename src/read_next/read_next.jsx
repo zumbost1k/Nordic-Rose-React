@@ -24,7 +24,7 @@ class ReadNext extends React.Component {
         {
             src: "photos/4.jpg",
             alt: "remote work",
-            text: "Updating list of 50+ sources on distributed teams, remote work, and how to make it all work better",
+            text: "Updating list of 50+ sources on distributed teams, remote work, and how to make it all",
         },
         {
             src: "photos/5.jpg",
@@ -38,13 +38,13 @@ class ReadNext extends React.Component {
         },
         ];
         let linksList = links.map(function (link) {
-            return <div className="atribute">
+            return <a href="/" className='decoration'> <div className="atribute">
                 <img className="second_page_photos" width="304" height="176" src={link.src}
                     alt={link.alt} />
                 <div>
                     <p className="text_after_images">{link.text}</p>
                 </div>
-            </div>;
+            </div></a>;
         })
         return (
 
