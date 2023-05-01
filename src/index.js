@@ -1,17 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Header from './header/header';
-import TopSectiom from './top_section/top_section.jsx';
-import SectionPhoto from './section_photo/section_photo.jsx';
 import Footer from './footer/footer.jsx';
-import { BrowserRouter, Route } from 'react-router-dom';
+import FirtsPage from './firtsPage';
+import PostPage from './PostPage';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Header />
-    <TopSectiom />
-    <SectionPhoto />
-    <Footer />
+    <BrowserRouter>
+  <Header/>
+      <Routes>
+        <Route path="/" element={<FirtsPage />} />
+        <Route path="/rectangle" element={<PostPage />} />
+      </Routes>
+      <Footer />
+    </BrowserRouter>
+
   </React.StrictMode>
 );
 

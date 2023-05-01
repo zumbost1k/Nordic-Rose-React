@@ -2,7 +2,7 @@ import './header.css';
 import React from 'react';
 let links = ['BLOG', 'ABOUT', 'LINKS', 'PROJECTS'];
 let linksList = links.map(function (link) {
-  return <a className="menu_link" href="">{link}</a>;
+  return <a className="menu_link" href="/">{link}</a>;
 })
 function Header() {
   return (

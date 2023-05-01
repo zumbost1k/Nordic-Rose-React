@@ -1,0 +1,73 @@
+.additional_articles {
+    margin-top: 91px;
+    border-top: 2px solid #000000;
+    text-align: center;
+    position: relative;
+}
+
+.read_next {
+    padding-top: 62px;
+    font-family: 'New York Extra Large';
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 38px;
+}
+
+.additional_articles:before {
+    content: url("eyes.png");
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: -30px;
+}
+
+.photo {
+    max-width: 304px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    flex-wrap: nowrap;
+}
+
+.text_after_images {
+    font-family: 'SF Pro Display';
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 120%;
+    padding: 20px 11px 0px 11px;
+}
+
+.second_page_photos {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 42px;
+}
+
+@media (min-width:855px) {
+    .read_next {
+        font-size: 44px;
+        padding-top: 73px;
+    }
+
+    .additional_articles {
+        margin-top: 132px;
+    }
+}
+@media (min-width:1024px) {
+    .photo {
+        padding-top: 27px;
+        height: 800px;
+        flex-wrap: wrap;
+        max-width: 1024px;
+        gap: 28px;
+    }
+
+    .atribute {
+        max-width: 304px;
+        margin-top: 34px;
+        color: black;
+        text-decoration: none;
+    }
+}
