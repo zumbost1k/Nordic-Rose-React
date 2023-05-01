@@ -1,4 +1,4 @@
-.section_with_photo {
+.section_with_photo1 {
     margin-top: 52px;
     margin-left: auto;
     margin-right: auto;
@@ -9,16 +9,17 @@
     position: relative;
 }
 
-.photo {
+.photo1 {
     max-width: 304px;
     display: flex;
+    position: relative;
     flex-direction: column;
     align-items: center;
     margin-left: auto;
     margin-right: auto;
 }
 
-.text_after_images {
+.text_after_images1 {
     font-family: 'SF Pro Display';
     font-weight: 500;
     font-size: 22px;
@@ -26,14 +27,19 @@
     padding: 20px 11px 0px 11px;
 }
 
-.second_page_photos {
+.second_page_photos1 {
     display: block;
     margin-left: auto;
     margin-right: auto;
     margin-top: 42px;
 }
 
-.articles {
+.atribute1 {
+    text-decoration: none;
+    color: black;
+}
+
+.articles1 {
     font-family: 'New York Extra Large';
     font-weight: 700;
     font-size: 32px;
@@ -41,9 +47,12 @@
     margin-bottom: -13px;
 }
 
-
 @media (min-width:855px) {
-    .photo {
+    .articles1 {
+        margin-bottom: 40px;
+    }
+
+    .photo1 {
         max-width: 640px;
         flex-wrap: wrap;
         height: 920px;
@@ -51,7 +60,7 @@
         justify-content: space-between;
     }
 
-    .atribute {
+    .atribute1 {
         flex: 1;
         max-width: 304px;
         position: relative;
@@ -60,11 +69,11 @@
         text-decoration: none;
     }
 
-    .second_page_photos {
+    .second_page_photos1 {
         margin: 0px;
     }
 
-    .text_after_images {
+    .text_after_images1 {
         padding: 20px 0px 0px 0px;
         margin-left: auto;
         margin-right: auto;
