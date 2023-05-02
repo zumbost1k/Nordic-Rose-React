@@ -16,12 +16,12 @@ const linksForFirstTable = [
 ];
 const linksForSecondTable = [
     {
-        name: "facebook2",
+        name: "facebook_second_table",
         src: "/photos/facebook.png",
         text: "Share on Facebook"
     },
     {
-        name: "twitter2",
+        name: "twitter_second_table",
         src: "/photos/twitter.png",
         text: "Share on Twitter"
     },
@@ -39,11 +39,11 @@ class PostSection extends React.Component {
 
     render() {
 
-        const linksList2 = linksForSecondTable.map(function (link) {
+        const linksListsecondLinks = linksForSecondTable.map(function (link) {
             return <td className={link.name}><a className="no_decoration" href="/"><img className="share_on_photo" src={link.src} width="20" height="20"
                 alt={link.name} /><p className="share_on">{link.text}</p></a></td>;
         })
-        let linksList = linksForFirstTable.map(function (link) {
+        const linksList = linksForFirstTable.map(function (link) {
             return <td className={link.name}><a href="/"><img src={link.src} width="20" height="20"
                 alt={link.name} /></a>
             </td>;
@@ -125,8 +125,8 @@ class PostSection extends React.Component {
                             <p className="section_footer_text share">Share:</p>
 
                             <table className="table_footer">
-                                <tr className="table_of_contact2">
-                                    {linksList2}
+                                <tr className="table_of_contact_second">
+                                    {linksListsecondLinks}
                                 </tr>
                             </table>
                             <p className="section_footer_text tags">Tags: <a href="" className="black_link">product design</a>, <a

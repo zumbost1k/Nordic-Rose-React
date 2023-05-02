@@ -48,11 +48,11 @@ const photos = [
 
 function Photo({ item }) {
     return (
-        <a href={item.href} className="atribute1">
-            <img className="second_page_photos1" width="304" height="176" src={item.path}
+        <a href={item.href} className="atribute_first">
+            <img className="second_page_photos_first" width="304" height="176" src={item.path}
                 alt={item.alt} />
             <div>
-                <p className="text_after_images1">
+                <p className="text_after_images_first">
                     {item.text}
                 </p>
             </div>
@@ -66,9 +66,9 @@ class SectionPhoto extends React.Component {
     render() {
         return (
             <div>
-                <section className="section_with_photo1">
-                    <h2 className="articles1"> All articles</h2>
-                    <div className="photo1">
+                <section className="section_with_photo_first">
+                    <h2 className="articles_first"> All articles</h2>
+                    <div className="photo_first">
                         {photos.map((item) => (<Photo item={item} />))}
                     </div>
                 </section>

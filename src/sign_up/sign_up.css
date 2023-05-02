@@ -43,9 +43,8 @@
 }
 
 .input_mail {
-    height: 53px;
+    height: 54px;
     border: 1px solid #000000;
-    margin-bottom: 20px;
 }
 
 .input_mail:focus {

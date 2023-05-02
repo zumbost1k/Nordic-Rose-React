@@ -1,6 +1,6 @@
 import React from 'react';
 import './read_next.css';
-let links = [{
+const links = [{
     src: "/photos/1.jpg",
     alt: "Granny gives everyone the finger",
     text: "Granny gives everyone the finger, and other tips from OFFF Barcelona",

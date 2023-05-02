@@ -57,7 +57,7 @@
 }
 
 .table_of_contact,
-.table_of_contact2 {
+.table_of_contact_second {
     display: flex;
     width: 100%;
     border: 1px solid #EAEAEA;
@@ -67,12 +67,12 @@
 }
 
 .facebook,
-.facebook2 {
+.facebook_second_table {
     padding: 17px 43px 17px 43px;
 }
 
 .twitter,
-.twitter2 {
+.twitter_second_table {
     padding: 17px 43px 17px 43px;
     border-right: 1px solid #EAEAEA;
     border-left: 1px solid #EAEAEA;
@@ -309,18 +309,18 @@
         margin-top: -4px;
     }
 
-    .twitter2 {
+    .twitter_second_table {
         border-right: 0;
         padding-right: 80px;
         padding-left: 80px;
     }
 
-    .facebook2 {
+    .facebook_second_table {
         padding-right: 71px;
         padding-left: 71px;
     }
 
-    .table_of_contact2 {
+    .table_of_contact_second {
         width: 600px;
         display: flex;
         justify-content: space-between;
