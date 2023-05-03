@@ -1,0 +1,377 @@
+.list,
+.text_after_list,
+.end,
+.share_on {
+    display: none;
+}
+
+.second_section {
+    margin-top: 24px;
+}
+
+.second_section_block {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 640px;
+}
+
+.inf_about_author {
+    display: flex;
+}
+
+.author_of_post_info {
+    display: flex;
+    padding-top: 24px;
+    border-top: 2px solid #000000;
+    flex-wrap: wrap;
+}
+
+.author_name {
+    font-family: 'SF Pro Display', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 16px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.time {
+    font-family: 'SF Pro Display', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    padding-top: 8px;
+}
+
+.text_about_author {
+    padding-left: 16px;
+}
+
+.table_with_photo {
+    padding-top: 24px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.table_of_contact,
+.table_of_contact_second {
+    display: flex;
+    width: 100%;
+    border: 1px solid #EAEAEA;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.08);
+    border-radius: 4px;
+    justify-content: space-between;
+}
+
+.facebook,
+.facebook_bottom_table {
+    padding: 17px 43px 17px 43px;
+}
+
+.twitter,
+.twitter_bottom_table {
+    padding: 17px 43px 17px 43px;
+    border-right: 1px solid #EAEAEA;
+    border-left: 1px solid #EAEAEA;
+}
+
+.phone {
+    padding: 17px 43px 17px 43px;
+}
+
+.author_comment {
+    padding-top: 32px;
+}
+
+.text_of_section {
+    font-family: 'New York Medium';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 170%;
+}
+
+.pipeline {
+    padding-top: 42px;
+    font-family: 'SF Pro Display';
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 31px;
+}
+
+.text_after_pipeline {
+    padding-top: 19px;
+}
+
+.rectangle {
+    padding-top: 42px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 375px;
+}
+
+.rectangle_caption {
+    font-family: 'SF Pro Display';
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 140%;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 12px 20px 0px 20px;
+}
+
+.last_section_text {
+    padding-top: 42px;
+}
+
+.last_text_second {
+    padding-top: 35px;
+}
+
+.article_section_footer {
+    padding-top: 42px;
+    border-bottom: 1px dashed #000000;
+}
+
+.section_footer_text {
+    font-family: 'SF Pro Display', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.03em;
+}
+
+.table_footer {
+    padding-top: 9px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 335px;
+}
+
+.tags {
+    padding-top: 24px;
+    padding-bottom: 25px;
+}
+
+.black_link {
+    color: #000000;
+}
+
+.comment_from_author {
+    padding-top: 28px;
+}
+
+.big_avatar {
+    float: left;
+    padding-right: 15px;
+    padding-bottom: 15px;
+}
+
+.big_avatar_text_bold {
+    font-family: 'SF Pro Text';
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 160%;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.big_avatar_text {
+    font-family: 'New York Small';
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 160%;
+}
+
+.additional_articles {
+    margin-top: 91px;
+    border-top: 2px solid #000000;
+    text-align: center;
+    position: relative;
+}
+
+@media (min-width:555px) {
+
+    .table_with_photo {
+        margin: 0;
+        padding-top: 0;
+    }
+
+    .author_of_post_info {
+        flex-wrap: nowrap;
+        justify-content: space-between;
+    }
+
+    .abyss {
+        display: none;
+    }
+
+    .facebook,
+    .twitter {
+        padding: 17px 38px 17px 39px;
+        border-right: 0;
+    }
+}
+
+@media (min-width:855px) {
+    .author_of_post_info {
+        margin-top: 32px;
+    }
+
+    .share_on_photo {
+        padding-right: 16px;
+        width: 100%;
+    }
+
+    .no_decoration {
+        text-decoration: none;
+        display: flex;
+        align-content: center;
+    }
+
+    .author_comment {
+        padding-top: 50px;
+    }
+
+    .text_after_pipeline {
+        padding-top: 24px;
+    }
+
+    .about_blog {
+        max-width: 854px;
+        font-size: 54px;
+        padding-top: 52px;
+    }
+
+    .last_section_text {
+        padding-top: 52px;
+    }
+
+    .rectangle {
+        padding-top: 52px;
+        width: 854px;
+    }
+
+    .rectangle_caption {
+        font-size: 16px;
+        max-width: 481px;
+    }
+
+    .small_text_about_blog {
+        font-size: 20px;
+        max-width: 550px;
+        padding-top: 32px;
+    }
+
+    .text_of_section {
+        font-size: 20px;
+    }
+
+    .pipeline {
+        font-size: 32px;
+    }
+
+    .top_photo {
+        padding-top: 52px;
+    }
+
+    .top_padding_burger {
+        padding: 35px 30px;
+    }
+
+    .list,
+    .text_after_list,
+    .end {
+        display: block;
+        padding-top: 52px;
+    }
+
+    .share,
+    .phone {
+        display: none;
+    }
+
+    .list_part {
+        padding-top: 20px;
+    }
+
+    .share_on {
+        display: block;
+        font-family: 'SF Pro Display';
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 160%;
+        white-space: nowrap;
+        color: #000000;
+        margin-top: -4px;
+    }
+
+    .twitter_bottom_table {
+        border-right: 0;
+        padding-right: 80px;
+        padding-left: 80px;
+    }
+
+    .facebook_bottom_table {
+        padding-right: 71px;
+        padding-left: 71px;
+    }
+
+    .table_of_contact_second {
+        width: 600px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .table_footer {
+        margin: 0;
+    }
+
+    .section_footer_text {
+        font-size: 16px;
+        padding-bottom: 34px;
+    }
+
+    .comment_from_author {
+        padding-top: 32px;
+    }
+
+    .big_avatar_text_bold {
+        font-size: 18px;
+    }
+
+    .big_avatar {
+        padding-top: 4px;
+        padding-right: 24px;
+    }
+
+    .big_avatar_text {
+        font-size: 16px;
+        padding-top: 0px;
+    }
+
+    .read_next {
+        font-size: 44px;
+        padding-top: 73px;
+    }
+
+    .additional_articles {
+        margin-top: 132px;
+    }
+
+    .sign_up_caption {
+        padding-top: 62px;
+        font-size: 36px;
+    }
+}
+
+@media (min-width:1024px) {
+
+    .author_name,
+    .time {
+        font-size: 16px;
+    }
+}

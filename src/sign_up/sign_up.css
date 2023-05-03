@@ -1,0 +1,101 @@
+.sign_up {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 82px;
+    border: 2px solid #000000;
+    border-top: 10px solid #000000;
+    text-align: center;
+    max-width: 640px;
+}
+
+.sign_up_caption {
+    padding: 42px 65px 0px 65px;
+    font-family: 'New York Extra Large';
+    font-weight: 700;
+    font-size: 29px;
+    line-height: 100%;
+}
+
+.sign_up_text {
+    padding: 14px 37px 0px 37px;
+    font-family: 'SF Pro Display';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+}
+
+.mail {
+    padding: 33px 26px 38px 26px;
+}
+
+.mail_text {
+    background-color: #000000;
+    color: white;
+    padding: 17px;
+    white-space: nowrap;
+    font-family: 'SF Pro Display';
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border: 0;
+}
+
+.input_mail {
+    height: 54px;
+    border: 1px solid #000000;
+}
+
+.input_mail:focus {
+    outline: none;
+}
+
+::placeholder {
+    color: #000000;
+    padding-left: 12px;
+    font-family: 'SF Pro Display';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+@media (min-width:855px) {
+    .sign_up_caption {
+        padding-top: 62px;
+        font-size: 36px;
+    }
+
+    .sign_up_text {
+        font-size: 20px;
+        padding-top: 18px;
+    }
+
+    .input_mail {
+        height: 55px;
+        width: 400px;
+    }
+
+    .mail {
+        padding: 36px 40px 60px 40px;
+    }
+
+    ::placeholder {
+        font-size: 20px;
+        padding-left: 16px;
+    }
+
+    .mail_text {
+        height: 55px;
+        width: 120px;
+        padding-top: 14px;
+        font-size: 20px;
+    }
+
+}
+
+@media (min-width:1024px){
+    .sign_up {
+        margin-top: 10px;
+    }
+}
