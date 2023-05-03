@@ -46,17 +46,13 @@ class ReadNext extends React.Component {
         super(props);
     }
     render() {
-
-
         return (
-
             <section className="additional_articles">
                 <h2 className="read_next">What to read next</h2>
                 <div className="photo">
                     {linksList}
                 </div>
             </section>
-
         );
     }
 };

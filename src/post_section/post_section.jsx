@@ -34,7 +34,6 @@ class PostSection extends React.Component {
     constructor(props) {
         super(props);
     }
-
     render() {
         return (
             <div>
@@ -68,8 +67,6 @@ class PostSection extends React.Component {
                             it.
                         </p>
                     </div>
-
-
                     <div className="rectangle">
                         <picture>
                             <source media="(max-width:854px)" width="375" height="250" srcset="/photos/rectangle.png" />
@@ -101,7 +98,6 @@ class PostSection extends React.Component {
                                         ipsum sit amet</li>
                                     <li className="list_part">Third item in the list</li>
                                 </ul>
-
                             </div>
                             <p className="text_of_section text_after_list">Class aptent taciti sociosqu Fad litora torquent per
                                 conubia
@@ -111,7 +107,6 @@ class PostSection extends React.Component {
                         </div>
                         <div className="article_section_footer">
                             <p className="section_footer_text share">Share:</p>
-
                             <table className="table_footer">
                                 <tr className="table_of_contact_second">
                                     {links.map((link) => (<LinksListBottom link={link} />))}
@@ -128,7 +123,6 @@ class PostSection extends React.Component {
                                 co-founder, and Nordic Rose stakeholder. </p>
                         </div>
                     </div>
-
                 </section>
             </div>
         );
