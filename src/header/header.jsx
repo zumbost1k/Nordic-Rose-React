@@ -1,8 +1,9 @@
 import './header.css';
 import React from 'react';
+import { Link } from 'react-router-dom';
 let links = ['BLOG', 'ABOUT', 'LINKS', 'PROJECTS'];
 let linksList = links.map(function (link) {
-  return <a className="menu_link" href="/">{link}</a>;
+  return <Link  className="menu_link" to="/">{link}</Link>;
 })
 function Header() {
   return (

@@ -1,51 +1,41 @@
 import React from 'react';
 import './post_section.css';
+import { Link } from 'react-router-dom';
 const links = [
     {
         name: "facebook",
         src: "/photos/facebook.png",
+        text: "Share on Facebook"
     },
     {
         name: "twitter",
         src: "/photos/twitter.png",
+        text: "Share on Twitter"
     },
     {
         name: "phone abyss",
         src: "/photos/phone.png",
-    },
-    {
-        name: "facebook_bottom_table",
-        src: "/photos/facebook.png",
-        text: "Share on Facebook"
-    },
-    {
-        name: "twitter_bottom_table",
-        src: "/photos/twitter.png",
-        text: "Share on Twitter"
-    },
-    {
-        name: "phone",
-        src: "/photos/phone.png",
         text: ""
-    },
+    }
 ];
+function LinksListBottom({ link }) {
+    const className = link.name === "phone" ? link.name : link.name + " _bottom_table"
+    return <td className={className}><Link className="no_decoration" to="/"><img className="share_on_photo" src={link.src} width="20" height="20"
+        alt={link.name} /><p className="share_on">{link.text}</p></Link></td>;
+}
 
+function LinksList({ link }) {
+    const className = link.name === "phone" ? link.name + " abyss" : link.name
+    return <td className={className}><Link to="/"><img src={link.src} width="20" height="20"
+        alt={link.name} /></Link>
+    </td>;
+}
 class PostSection extends React.Component {
     constructor(props) {
         super(props);
     }
 
     render() {
-
-        const linksListBottom = links.slice(2).map(function (link) {
-            return <td className={link.name}><a className="no_decoration" href="/"><img className="share_on_photo" src={link.src} width="20" height="20"
-                alt={link.name} /><p className="share_on">{link.text}</p></a></td>;
-        })
-        const linksList = links.slice(0,3).map(function (link) {
-            return <td className={link.name}><a href="/"><img src={link.src} width="20" height="20"
-                alt={link.name} /></a>
-            </td>;
-        })
         return (
             <div>
                 <section className="second_section">
@@ -60,7 +50,7 @@ class PostSection extends React.Component {
                             </div>
                             <table className="table_with_photo">
                                 <tr className="table_of_contact">
-                                    {linksList}
+                                    {links.map((link) => (<LinksList link={link} />))}
                                 </tr>
                             </table>
                         </div>
@@ -124,11 +114,11 @@ class PostSection extends React.Component {
 
                             <table className="table_footer">
                                 <tr className="table_of_contact_second">
-                                    {linksListBottom}
+                                    {links.map((link) => (<LinksListBottom link={link} />))}
                                 </tr>
                             </table>
-                            <p className="section_footer_text tags">Tags: <a href="" className="black_link">product design</a>, <a
-                                href="" className="black_link">culture</a></p>
+                            <p className="section_footer_text tags">Tags: <Link to="/" className="black_link">product design</Link>, <Link
+                                to="/" className="black_link">culture</Link></p>
                         </div>
                         <div className="comment_from_author">
                             <img className="big_avatar" src="/photos/big_avatar.png" width="70" height="70" alt="big avatar" />

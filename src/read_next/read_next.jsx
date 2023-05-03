@@ -1,5 +1,6 @@
 import React from 'react';
 import './read_next.css';
+import { Link } from 'react-router-dom';
 const links = [{
     src: "/photos/1.jpg",
     alt: "Granny gives everyone the finger",
@@ -31,14 +32,14 @@ const links = [{
     text: "How modern remote working tools get along with Old School Cowboy's methods",
 },
 ];
-const linksList = links.map(function (link) {
-    return <a href="/" className='decoration'> <div className="atribute">
+const linksList = links.map(function (link, index) {
+    return <Link to={"/posts/" + index} className='decoration'> <div className="atribute">
         <img className="second_page_photos" width="304" height="176" src={link.src}
             alt={link.alt} />
         <div>
             <p className="text_after_images">{link.text}</p>
         </div>
-    </div></a>;
+    </div></Link>;
 })
 class ReadNext extends React.Component {
     constructor(props) {
