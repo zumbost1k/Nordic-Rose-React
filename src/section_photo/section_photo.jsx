@@ -48,11 +48,11 @@ const photos = [
 
 function Photo({ item }) {
     return (
-        <a href={item.href} className="atribute_first">
-            <img className="second_page_photos_first" width="304" height="176" src={item.path}
+        <a href={item.href} className="atribute_home_page">
+            <img className="second_page_photos_home_page" width="304" height="176" src={item.path}
                 alt={item.alt} />
             <div>
-                <p className="text_after_images_first">
+                <p className="text_after_images_home_page">
                     {item.text}
                 </p>
             </div>
@@ -63,12 +63,33 @@ class SectionPhoto extends React.Component {
     constructor(props) {
         super(props);
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     render() {
         return (
             <div>
-                <section className="section_with_photo_first">
-                    <h2 className="articles_first"> All articles</h2>
-                    <div className="photo_first">
+                <section className="section_with_photo_home_page">
+                    <h2 className="articles_home_page"> All articles</h2>
+                    <div className="photo_home_page">
                         {photos.map((item) => (<Photo item={item} />))}
                     </div>
                 </section>

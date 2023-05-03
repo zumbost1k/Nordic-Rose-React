@@ -1,6 +1,6 @@
 import React from 'react';
 import './post_section.css';
-const linksForFirstTable = [
+const links = [
     {
         name: "facebook",
         src: "/photos/facebook.png",
@@ -13,15 +13,13 @@ const linksForFirstTable = [
         name: "phone abyss",
         src: "/photos/phone.png",
     },
-];
-const linksForSecondTable = [
     {
-        name: "facebook_second_table",
+        name: "facebook_bottom_table",
         src: "/photos/facebook.png",
         text: "Share on Facebook"
     },
     {
-        name: "twitter_second_table",
+        name: "twitter_bottom_table",
         src: "/photos/twitter.png",
         text: "Share on Twitter"
     },
@@ -39,11 +37,11 @@ class PostSection extends React.Component {
 
     render() {
 
-        const linksListsecondLinks = linksForSecondTable.map(function (link) {
+        const linksListBottom = links.slice(2).map(function (link) {
             return <td className={link.name}><a className="no_decoration" href="/"><img className="share_on_photo" src={link.src} width="20" height="20"
                 alt={link.name} /><p className="share_on">{link.text}</p></a></td>;
         })
-        const linksList = linksForFirstTable.map(function (link) {
+        const linksList = links.slice(0,3).map(function (link) {
             return <td className={link.name}><a href="/"><img src={link.src} width="20" height="20"
                 alt={link.name} /></a>
             </td>;
@@ -126,7 +124,7 @@ class PostSection extends React.Component {
 
                             <table className="table_footer">
                                 <tr className="table_of_contact_second">
-                                    {linksListsecondLinks}
+                                    {linksListBottom}
                                 </tr>
                             </table>
                             <p className="section_footer_text tags">Tags: <a href="" className="black_link">product design</a>, <a

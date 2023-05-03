@@ -67,12 +67,12 @@
 }
 
 .facebook,
-.facebook_second_table {
+.facebook_bottom_table {
     padding: 17px 43px 17px 43px;
 }
 
 .twitter,
-.twitter_second_table {
+.twitter_bottom_table {
     padding: 17px 43px 17px 43px;
     border-right: 1px solid #EAEAEA;
     border-left: 1px solid #EAEAEA;
@@ -309,13 +309,13 @@
         margin-top: -4px;
     }
 
-    .twitter_second_table {
+    .twitter_bottom_table {
         border-right: 0;
         padding-right: 80px;
         padding-left: 80px;
     }
 
-    .facebook_second_table {
+    .facebook_bottom_table {
         padding-right: 71px;
         padding-left: 71px;
     }
