@@ -7,7 +7,6 @@ class SignUp extends React.Component {
     }
     render() {
         return (
-            <div>
                 <section class="sign_up">
                     <h2 class="sign_up_caption">Sign up for the newsletter</h2>
                     <p class="sign_up_text">If you want relevant updates occasionally, sign up for the private newsletter. Your
@@ -17,7 +16,6 @@ class SignUp extends React.Component {
                             up</button>
                     </form>
                 </section>
-            </div>
         );
     }
 };
