@@ -3,11 +3,17 @@ import './read_next.css';
 import { Link } from 'react-router-dom';
 
 const ReadNext = () => {
+    const paramsString = document.location.href;
+    const index = paramsString.split("/").slice(-1)[0]
     const [data, setPosts] = useState({ posts: [] })
     useEffect(() => {
         fetch("https://dolphin-app-cbjj4.ondigitalocean.app/users/misha/posts")
             .then(response => response.json())
             .then(data => setPosts({ posts: data }))
+        const correcterArr = data.posts.map(elem => {
+            if (elem.id !== parseInt(index)) { return elem }
+        }).filter(Boolean)
+        setPosts({ posts: correcterArr })
     })
     return (
         <section className="additional_articles">

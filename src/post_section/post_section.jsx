@@ -14,7 +14,7 @@ const links = [
         text: "Share on Twitter"
     },
     {
-        name: "phone abyss",
+        name: "phone",
         src: "/photos/phone.png",
         text: ""
     }
@@ -48,10 +48,10 @@ const PostSection = () => {
                 <div className="second_section_block">
                     <div className="author_of_post_info">
                         <div className="inf_about_author">
-                            <img src="/photos/avatar.png" width="56" height="56" alt="avatar" />
+                            <img className="avatar" src="/photos/avatar.jpg" width="56" height="56" alt="avatar" />
                             <div className="text_about_author">
                                 <p className="author_name">Misha Matusevich</p>
-                                <p className="time"> <time datetime="2020-04-15">{formattedDate}</time> · {Math.trunc(data.posts.content.length / 250)} min read</p>
+                                <p className="time"> <time datetime="YYYY-MM-DD">{formattedDate}</time> · {Math.trunc(data.posts.content/250)} min read</p>
                             </div>
                         </div>
                         <table className="table_with_photo">
@@ -83,11 +83,8 @@ const PostSection = () => {
                             to="/" className="black_link">culture</Link></p>
                     </div>
                     <div className="comment_from_author">
-                        <img className="big_avatar" src="/photos/big_avatar.png" width="70" height="70" alt="big avatar" />
-                        <p className="big_avatar_text"><span className="big_avatar_text_bold">Misha Matusevich</span> is a Design
-                            Founder
-                            & Advisor, Berlin School of Creative Leadership Executive MBA participant, Zippie advisor, Wolt
-                            co-founder, and Nordic Rose stakeholder. </p>
+                        <img className="big_avatar" src="/photos/big_avatar.jpg" width="70" height="70" alt="big avatar" />
+                        <p className="big_avatar_text"><span className="big_avatar_text_bold">Misha Matusevich</span> is an aspiring programmer studying front-end development. Apprentice MCB, vocalist of the rock band "Drick's End!. </p>
                     </div>
                 </div>
             </section>

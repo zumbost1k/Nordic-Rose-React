@@ -1,4 +1,5 @@
 .post_body ol,
+.post_body ul,
 .end,
 .share_on {
     display: none;
@@ -19,6 +20,10 @@
 
 .inf_about_author {
     display: flex;
+}
+
+.avatar {
+    border-radius: 100%;
 }
 
 .author_of_post_info {
@@ -82,12 +87,8 @@
     padding: 17px 43px 17px 43px;
 }
 
-.author_comment {
-    padding-top: 32px;
-}
-
-.post_body p, 
-.post_body li{
+.post_body p,
+.post_body li {
     padding-top: 24px;
     font-family: 'New York Medium';
     font-weight: 400;
@@ -101,10 +102,6 @@
     font-weight: 700;
     font-size: 26px;
     line-height: 31px;
-}
-
-.text_after_pipeline {
-    padding-top: 19px;
 }
 
 .rectangle {
@@ -123,14 +120,6 @@
     margin-right: auto;
     margin-left: auto;
     padding: 12px 20px 0px 20px;
-}
-
-.last_section_text {
-    padding-top: 42px;
-}
-
-.last_text_second {
-    padding-top: 35px;
 }
 
 .article_section_footer {
@@ -167,9 +156,10 @@
 }
 
 .big_avatar {
+    border-radius: 100%;
     float: left;
-    padding-right: 15px;
-    padding-bottom: 15px;
+    margin-right: 15px;
+    margin-bottom: 15px;
 }
 
 .big_avatar_text_bold {
@@ -285,7 +275,8 @@
         padding: 35px 30px;
     }
 
-    .post_body ol {
+    .post_body ol,
+    .post_body ul {
         display: block;
         padding: 52px 0px;
     }
@@ -346,7 +337,7 @@
 
     .big_avatar {
         padding-top: 4px;
-        padding-right: 24px;
+        margin-right: 24px;
     }
 
     .big_avatar_text {
@@ -357,10 +348,6 @@
     .read_next {
         font-size: 44px;
         padding-top: 73px;
-    }
-
-    .additional_articles {
-        margin-top: 132px;
     }
 
     .sign_up_caption {
