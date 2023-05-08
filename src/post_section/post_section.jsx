@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './post_section.css';
 import { Link } from 'react-router-dom';
+
 const links = [
     {
         name: "facebook",
@@ -30,102 +31,108 @@ function LinksList({ link }) {
         alt={link.name} /></Link>
     </td>;
 }
-class PostSection extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-    render() {
-        return (
-            <div>
-                <section className="second_section">
-                    <div className="second_section_block">
-                        <div className="author_of_post_info">
-                            <div className="inf_about_author">
-                                <img src="/photos/avatar.png" width="56" height="56" alt="avatar" />
-                                <div className="text_about_author">
-                                    <p className="author_name">Mika Matikainen</p>
-                                    <p className="time"> <time datetime="2020-04-15">Apr 15, 2020</time> · 4 min read</p>
-                                </div>
+const PostSection = () => {
+   
+    const [data, setPosts] = useState({ posts: [] })
+    useEffect(() => {
+        fetch(`https://dolphin-app-cbjj4.ondigitalocean.app/posts/${index}`)
+            .then(response => response.json())
+            .then(data => setPosts({ posts: data }))
+    })
+    const formattedDate = new Date(data.posts.updated_at).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+    const paramsString = document.location.href;
+    const index = paramsString.split("/").slice(-1)[0]
+    return (
+        <div>
+            <section className="second_section">
+                <div className="second_section_block">
+                    <div className="author_of_post_info">
+                        <div className="inf_about_author">
+                            <img src="/photos/avatar.png" width="56" height="56" alt="avatar" />
+                            <div className="text_about_author">
+                                <p className="author_name">Mika Matikainen</p>
+                                <p className="time"> <time datetime="2020-04-15">{ formattedDate}</time> · 4 min read</p>
                             </div>
-                            <table className="table_with_photo">
-                                <tr className="table_of_contact">
-                                    {links.map((link) => (<LinksList link={link} />))}
-                                </tr>
-                            </table>
                         </div>
-                        <p className="author_comment text_of_section">This lovely web is full of everything which is created I don't
-                            know what in mind,
-                            considering that sometimes totally bonkers stuff might be highly relevant if it has the right kind
-                            of
-                            thinking behind it. </p>
-                        <h2 className="pipeline">Next on the pipeline</h2>
-                        <p className="text_after_pipeline text_of_section">This lovely web is full of everything which is created I
-                            don't know what in
-                            mind, considering
-                            that
-                            sometimes totally bonkers stuff might be highly relevant if it has the right kind of thinking behind
-                            it.
-                        </p>
+                        <table className="table_with_photo">
+                            <tr className="table_of_contact">
+                                {links.map((link) => (<LinksList link={link} />))}
+                            </tr>
+                        </table>
                     </div>
-                    <div className="rectangle">
-                        <picture>
-                            <source media="(max-width:854px)" width="375" height="250" srcset="/photos/rectangle.png" />
-                            <source media="(min-width:854px)" width="854" height="570" srcset="/photos/rectangle_desktop.jpg" />
-                            <img src="/photos/rectangle_desktop.jpg" width="854" height="570" alt="rectangle" />
-                        </picture>
-                        <figcaption className="rectangle_caption">Image caption centered this way and I’ll make this a bit longer to
-                            indicate the amount of line-height</figcaption>
+                    {/* <p className="author_comment text_of_section">This lovely web is full of everything which is created I don't
+                        know what in mind,
+                        considering that sometimes totally bonkers stuff might be highly relevant if it has the right kind
+                        of
+                        thinking behind it. </p>
+                    <h2 className="pipeline">Next on the pipeline</h2>
+                    <p className="text_after_pipeline text_of_section">This lovely web is full of everything which is created I
+                        don't know what in
+                        mind, considering
+                        that
+                        sometimes totally bonkers stuff might be highly relevant if it has the right kind of thinking behind
+                        it.
+                    </p> */}
+                </div>
+                <div className="rectangle">
+                    <picture>
+                        <source media="(max-width:854px)" width="375" height="250" srcset="/photos/rectangle.png" />
+                        <source media="(min-width:854px)" width="854" height="570" srcset="/photos/rectangle_desktop.jpg" />
+                        <img src="/photos/rectangle_desktop.jpg" width="854" height="570" alt="rectangle" />
+                    </picture>
+                    <figcaption className="rectangle_caption">Image caption centered this way and I’ll make this a bit longer to
+                        indicate the amount of line-height</figcaption>
+                </div>
+                {data.posts.content}
+                {/* <div className="second_section_block">
+                    <div className="last_section_text">
+                        <p className="text_of_section">This lovely web is full of everything which is created I don't know what
+                            in
+                            mind, considering that
+                            sometimes totally bonkers stuff might be highly relevant if it has the right kind of thinking
+                            behind
+                            it. </p>
+                        <p className="text_of_section last_text_second">Luckily, in the middle of all that, there are some
+                            pockets
+                            of content that offer delightfully
+                            valuable
+                            contrast to cursory wisdom in some of the established channels.</p>
+                        <div className="text_of_section list">
+                            <p>A list looks like this:</p>
+                            <ul>
+                                <li>First item in the list</li>
+                                <li className="list_part">Second item in the list lorem ipsum dolor sit amet nunc felis dolor
+                                    lorem
+                                    ipsum sit amet</li>
+                                <li className="list_part">Third item in the list</li>
+                            </ul>
+                        </div>
+                        <p className="text_of_section text_after_list">Class aptent taciti sociosqu Fad litora torquent per
+                            conubia
+                            nostra, per inceptos himenaeos. Aliquam quis posuere ligula. </p>
+                        <p className="text_of_section end">Thanks for reading,<br />
+                            Mika</p>
                     </div>
-                    <div className="second_section_block">
-                        <div className="last_section_text">
-                            <p className="text_of_section">This lovely web is full of everything which is created I don't know what
-                                in
-                                mind, considering that
-                                sometimes totally bonkers stuff might be highly relevant if it has the right kind of thinking
-                                behind
-                                it. </p>
-                            <p className="text_of_section last_text_second">Luckily, in the middle of all that, there are some
-                                pockets
-                                of content that offer delightfully
-                                valuable
-                                contrast to cursory wisdom in some of the established channels.</p>
-                            <div className="text_of_section list">
-                                <p>A list looks like this:</p>
-                                <ul>
-                                    <li>First item in the list</li>
-                                    <li className="list_part">Second item in the list lorem ipsum dolor sit amet nunc felis dolor
-                                        lorem
-                                        ipsum sit amet</li>
-                                    <li className="list_part">Third item in the list</li>
-                                </ul>
-                            </div>
-                            <p className="text_of_section text_after_list">Class aptent taciti sociosqu Fad litora torquent per
-                                conubia
-                                nostra, per inceptos himenaeos. Aliquam quis posuere ligula. </p>
-                            <p className="text_of_section end">Thanks for reading,<br />
-                                Mika</p>
-                        </div>
-                        <div className="article_section_footer">
-                            <p className="section_footer_text share">Share:</p>
-                            <table className="table_footer">
-                                <tr className="table_of_contact_second">
-                                    {links.map((link) => (<LinksListBottom link={link} />))}
-                                </tr>
-                            </table>
-                            <p className="section_footer_text tags">Tags: <Link to="/" className="black_link">product design</Link>, <Link
-                                to="/" className="black_link">culture</Link></p>
-                        </div>
-                        <div className="comment_from_author">
-                            <img className="big_avatar" src="/photos/big_avatar.png" width="70" height="70" alt="big avatar" />
-                            <p className="big_avatar_text"><span className="big_avatar_text_bold">Mika Matikainen</span> is a Design
-                                Founder
-                                & Advisor, Berlin School of Creative Leadership Executive MBA participant, Zippie advisor, Wolt
-                                co-founder, and Nordic Rose stakeholder. </p>
-                        </div>
+                    <div className="article_section_footer">
+                        <p className="section_footer_text share">Share:</p>
+                        <table className="table_footer">
+                            <tr className="table_of_contact_second">
+                                {links.map((link) => (<LinksListBottom link={link} />))}
+                            </tr>
+                        </table>
+                        <p className="section_footer_text tags">Tags: <Link to="/" className="black_link">product design</Link>, <Link
+                            to="/" className="black_link">culture</Link></p>
                     </div>
-                </section>
-            </div>
-        );
-    }
+                    <div className="comment_from_author">
+                        <img className="big_avatar" src="/photos/big_avatar.png" width="70" height="70" alt="big avatar" />
+                        <p className="big_avatar_text"><span className="big_avatar_text_bold">Mika Matikainen</span> is a Design
+                            Founder
+                            & Advisor, Berlin School of Creative Leadership Executive MBA participant, Zippie advisor, Wolt
+                            co-founder, and Nordic Rose stakeholder. </p>
+                    </div>
+                </div> */}
+            </section>
+        </div>
+    );
 };
 export default PostSection;

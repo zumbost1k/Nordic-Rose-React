@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 let links = ['BLOG', 'ABOUT', 'LINKS', 'PROJECTS'];
 let linksList = links.map(function (link) {
-  return <Link  className="menu_link" to="/">{link}</Link>;
+  return <Link className="menu_link" to="/">{link}</Link>;
 })
 function Header() {
   return (
@@ -23,6 +23,9 @@ function Header() {
         </div>
         <div className="top_padding_burger">
           <img width="25" height="16" src="/photos/burger.png" alt="burger" />
+          <div className="hoover_menu">
+            {linksList}
+          </div>
         </div>
       </header>
     </div>
