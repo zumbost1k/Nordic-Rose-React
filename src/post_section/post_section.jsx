@@ -20,7 +20,7 @@ const links = [
     }
 ];
 function LinksListBottom({ link }) {
-    const className = link.name === "phone" ? link.name : link.name + " _bottom_table"
+    const className = link.name === "phone" ? link.name : link.name + "_bottom_table"
     return <td className={className}><Link className="no_decoration" to="/"><img className="share_on_photo" src={link.src} width="20" height="20"
         alt={link.name} /><p className="share_on">{link.text}</p></Link></td>;
 }
@@ -32,7 +32,7 @@ function LinksList({ link }) {
     </td>;
 }
 const PostSection = () => {
-   
+
     const [data, setPosts] = useState({ posts: [] })
     useEffect(() => {
         fetch(`https://dolphin-app-cbjj4.ondigitalocean.app/posts/${index}`)
@@ -50,8 +50,8 @@ const PostSection = () => {
                         <div className="inf_about_author">
                             <img src="/photos/avatar.png" width="56" height="56" alt="avatar" />
                             <div className="text_about_author">
-                                <p className="author_name">Mika Matikainen</p>
-                                <p className="time"> <time datetime="2020-04-15">{ formattedDate}</time> · 4 min read</p>
+                                <p className="author_name">Misha Matusevich</p>
+                                <p className="time"> <time datetime="2020-04-15">{formattedDate}</time> · {Math.trunc(data.posts.content.length / 250)} min read</p>
                             </div>
                         </div>
                         <table className="table_with_photo">
@@ -60,19 +60,6 @@ const PostSection = () => {
                             </tr>
                         </table>
                     </div>
-                    {/* <p className="author_comment text_of_section">This lovely web is full of everything which is created I don't
-                        know what in mind,
-                        considering that sometimes totally bonkers stuff might be highly relevant if it has the right kind
-                        of
-                        thinking behind it. </p>
-                    <h2 className="pipeline">Next on the pipeline</h2>
-                    <p className="text_after_pipeline text_of_section">This lovely web is full of everything which is created I
-                        don't know what in
-                        mind, considering
-                        that
-                        sometimes totally bonkers stuff might be highly relevant if it has the right kind of thinking behind
-                        it.
-                    </p> */}
                 </div>
                 <div className="rectangle">
                     <picture>
@@ -83,36 +70,8 @@ const PostSection = () => {
                     <figcaption className="rectangle_caption">Image caption centered this way and I’ll make this a bit longer to
                         indicate the amount of line-height</figcaption>
                 </div>
-                {data.posts.content}
-                {/* <div className="second_section_block">
-                    <div className="last_section_text">
-                        <p className="text_of_section">This lovely web is full of everything which is created I don't know what
-                            in
-                            mind, considering that
-                            sometimes totally bonkers stuff might be highly relevant if it has the right kind of thinking
-                            behind
-                            it. </p>
-                        <p className="text_of_section last_text_second">Luckily, in the middle of all that, there are some
-                            pockets
-                            of content that offer delightfully
-                            valuable
-                            contrast to cursory wisdom in some of the established channels.</p>
-                        <div className="text_of_section list">
-                            <p>A list looks like this:</p>
-                            <ul>
-                                <li>First item in the list</li>
-                                <li className="list_part">Second item in the list lorem ipsum dolor sit amet nunc felis dolor
-                                    lorem
-                                    ipsum sit amet</li>
-                                <li className="list_part">Third item in the list</li>
-                            </ul>
-                        </div>
-                        <p className="text_of_section text_after_list">Class aptent taciti sociosqu Fad litora torquent per
-                            conubia
-                            nostra, per inceptos himenaeos. Aliquam quis posuere ligula. </p>
-                        <p className="text_of_section end">Thanks for reading,<br />
-                            Mika</p>
-                    </div>
+                <div className="second_section_block">
+                    {<div className='post_body' dangerouslySetInnerHTML={{ __html: data.posts.content }} />}
                     <div className="article_section_footer">
                         <p className="section_footer_text share">Share:</p>
                         <table className="table_footer">
@@ -125,12 +84,12 @@ const PostSection = () => {
                     </div>
                     <div className="comment_from_author">
                         <img className="big_avatar" src="/photos/big_avatar.png" width="70" height="70" alt="big avatar" />
-                        <p className="big_avatar_text"><span className="big_avatar_text_bold">Mika Matikainen</span> is a Design
+                        <p className="big_avatar_text"><span className="big_avatar_text_bold">Misha Matusevich</span> is a Design
                             Founder
                             & Advisor, Berlin School of Creative Leadership Executive MBA participant, Zippie advisor, Wolt
                             co-founder, and Nordic Rose stakeholder. </p>
                     </div>
-                </div> */}
+                </div>
             </section>
         </div>
     );

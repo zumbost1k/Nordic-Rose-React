@@ -1,5 +1,4 @@
-.list,
-.text_after_list,
+.post_body ol,
 .end,
 .share_on {
     display: none;
@@ -10,6 +9,7 @@
 }
 
 .second_section_block {
+    padding-top: 42px;
     padding-left: 20px;
     padding-right: 20px;
     margin-left: auto;
@@ -86,14 +86,16 @@
     padding-top: 32px;
 }
 
-.text_of_section {
+.post_body p, 
+.post_body li{
+    padding-top: 24px;
     font-family: 'New York Medium';
     font-weight: 400;
     font-size: 16px;
     line-height: 170%;
 }
 
-.pipeline {
+.post_body h2 {
     padding-top: 42px;
     font-family: 'SF Pro Display';
     font-weight: 700;
@@ -266,11 +268,12 @@
         padding-top: 32px;
     }
 
-    .text_of_section {
+    .post_body p,
+    .post_body li {
         font-size: 20px;
     }
 
-    .pipeline {
+    .post_body h2 {
         font-size: 32px;
     }
 
@@ -282,11 +285,9 @@
         padding: 35px 30px;
     }
 
-    .list,
-    .text_after_list,
-    .end {
+    .post_body ol {
         display: block;
-        padding-top: 52px;
+        padding: 52px 0px;
     }
 
     .share,
