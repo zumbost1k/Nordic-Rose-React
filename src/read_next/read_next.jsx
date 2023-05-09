@@ -20,7 +20,7 @@ const ReadNext = () => {
             <h2 className="read_next">What to read next</h2>
             <div className="photo">
                 {data.posts.map((link) => <Link to={"/posts/" + link.id} className='decoration'> <div className="atribute">
-                    <img className="second_page_photos" width="304" height="176" src={link.src}
+                    <img className="second_page_photos" width="304" height="176" src={link.thumbnail_url}
                         alt={link.title} />
                     <div>
                         <p className="text_after_images">{link.title}</p>
