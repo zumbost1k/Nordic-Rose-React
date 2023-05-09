@@ -41,7 +41,7 @@ const PostSection = () => {
     },[])
     const formattedDate = new Date(data.posts.updated_at).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
     const paramsString = document.location.href;
-    const index = paramsString.split("/").slice(-1)[0]
+    const index = paramsString.split("/").slice(-1)[0] 
     return (
         <div>
             <section className="second_section">
@@ -51,7 +51,7 @@ const PostSection = () => {
                             <img className="avatar" src="/photos/avatar.jpg" width="56" height="56" alt="avatar" />
                             <div className="text_about_author">
                                 <p className="author_name">Misha Matusevich</p>
-                                <p className="time"> <time datetime="YYYY-MM-DD">{formattedDate}</time> · {Math.trunc(data.posts.content/250)} min read</p>
+                                <p className="time"> <time datetime="YYYY-MM-DD">{formattedDate}</time> · {data.posts.content?Math.trunc(data.posts.content.length/250):"few"} min read</p>
                             </div>
                         </div>
                         <table className="table_with_photo">
@@ -63,12 +63,11 @@ const PostSection = () => {
                 </div>
                 <div className="rectangle">
                     <picture>
-                        <source media="(max-width:854px)" width="375" height="250" srcset="/photos/rectangle.png" />
-                        <source media="(min-width:854px)" width="854" height="570" srcset="/photos/rectangle_desktop.jpg" />
-                        <img src="/photos/rectangle_desktop.jpg" width="854" height="570" alt="rectangle" />
+                        <source media="(max-width:854px)" width="375" height="250" srcset={data.posts.thumbnail_url} />
+                        <source media="(min-width:854px)" width="854" height="570" srcset={data.posts.thumbnail_url} />
+                        <img src={data.posts.thumbnail_url} width="854" height="570" alt="main photo" />
                     </picture>
-                    <figcaption className="rectangle_caption">Image caption centered this way and I’ll make this a bit longer to
-                        indicate the amount of line-height</figcaption>
+                    <figcaption className="rectangle_caption">{data.posts.title}</figcaption>
                 </div>
                 <div className="second_section_block">
                     {<div className='post_body' dangerouslySetInnerHTML={{ __html: data.posts.content }} />}
