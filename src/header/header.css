@@ -3,12 +3,12 @@
 }
 
 .desktop_menu,
-.hoover_menu {
+.hover_menu {
     display: none;
 }
 
 
-.top_padding_burger:hover .hoover_menu {
+.top_padding_burger:hover .hover_menu {
     display: flex;
     flex-direction: column;
     position: absolute;

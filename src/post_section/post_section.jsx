@@ -32,13 +32,13 @@ function LinksList({ link }) {
     </td>;
 }
 const PostSection = () => {
-
-    const [data, setPosts] = useState({ posts: [] })
+    const [data, setPosts] = useState({ posts: {} })
     useEffect(() => {
+        
         fetch(`https://dolphin-app-cbjj4.ondigitalocean.app/posts/${index}`)
             .then(response => response.json())
             .then(data => setPosts({ posts: data }))
-    })
+    },[])
     const formattedDate = new Date(data.posts.updated_at).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
     const paramsString = document.location.href;
     const index = paramsString.split("/").slice(-1)[0]

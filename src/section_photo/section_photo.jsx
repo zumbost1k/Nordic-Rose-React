@@ -4,10 +4,11 @@ import { Link } from 'react-router-dom';
 const SectionPhoto = () => {
     const [data, setPosts] = useState({ posts: [] })
     useEffect(() => {
+        console.log("hello")
         fetch("https://dolphin-app-cbjj4.ondigitalocean.app/users/misha/posts")
             .then(response => response.json())
             .then(data => setPosts({ posts: data }))
-    })
+    },[])
     return (
         <div>
             <section className="section_with_photo_home_page">

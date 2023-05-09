@@ -14,7 +14,7 @@ const ReadNext = () => {
             if (elem.id !== parseInt(index)) { return elem }
         }).filter(Boolean)
         setPosts({ posts: correcterArr })
-    })
+    },[])
     return (
         <section className="additional_articles">
             <h2 className="read_next">What to read next</h2>
