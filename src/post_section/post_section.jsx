@@ -22,7 +22,7 @@ const links = [
         href: "https://web.telegram.org/k/#@zumbost1k"
     },
 ];
-function LinkListBottom({ link }) {
+function LinkBottomFunction({ link }) {
     const className =
         link.name === "telegramm" ? link.name : link.name + "_bottom_table";
     return (
@@ -41,7 +41,7 @@ function LinkListBottom({ link }) {
     );
 }
 
-function LinkList({ link }) {
+function LinkFunction({ link }) {
     const className = link.name === "telegramm" ? link.name + " abyss" : link.name;
     return (
         <td className={className}>
@@ -80,14 +80,13 @@ const PostSection = () => {
                             <div className="text_about_author">
                                 <p className="author_name">Misha Matusevich</p>
                                 <p className="time">
-                                    {" "}
                                     <time datetime="YYYY-MM-DD">
                                         {formattedDate || "recently"}
-                                    </time>{" "}
-                                    ·{" "}
+                                    </time>
+                                    &nbsp;·&nbsp;
                                     {data.posts.content
                                         ? Math.trunc(data.posts.content.replace(/(<([^>]+)>)/ig, '').length / 250)
-                                        : "few"}{" "}
+                                        : "few"}&nbsp;
                                     min read
                                 </p>
                             </div>
@@ -95,7 +94,7 @@ const PostSection = () => {
                         <table className="table_with_photo">
                             <tr className="table_of_contact">
                                 {links.map((link) => (
-                                    <LinkList link={link} />
+                                    <LinkFunction link={link} />
                                 ))}
                             </tr>
                         </table>
@@ -138,18 +137,16 @@ const PostSection = () => {
                         <table className="table_footer">
                             <tr className="table_of_contact_second">
                                 {links.map((link) => (
-                                    <LinkListBottom link={link} />
+                                    <LinkBottomFunction link={link} />
                                 ))}
                             </tr>
                         </table>
                         <p className="section_footer_text tags">
-                            Tags:{" "}
-                            <Link to="/" className="black_link">
-                                product design
+                        Tags:&nbsp;<Link to="/" className="black_link">
+                                product design,
                             </Link>
-                            ,{" "}
                             <Link to="/" className="black_link">
-                                culture
+                            &nbsp;culture
                             </Link>
                         </p>
                     </div>
@@ -164,7 +161,7 @@ const PostSection = () => {
                         <p className="big_avatar_text">
                             <span className="big_avatar_text_bold">Misha Matusevich</span> is
                             an aspiring programmer studying front-end development. Apprentice
-                            MCB, vocalist of the rock band "Drick's End!.{" "}
+                            MCB, vocalist of the rock band "Drick's End!.
                         </p>
                     </div>
                 </div>

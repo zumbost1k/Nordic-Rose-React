@@ -1,21 +1,34 @@
 import React from "react";
 import "./footer.css";
 import { Link } from "react-router-dom";
+const links = [
+    {
+        name: "GitHub",
+        href: "https://github.com/zumbost1k"
+    },
+    {
+        name: "Instagramm",
+        href: "https://www.instagram.com/misha_mch/?hl=ru"
+    },
+    {
+        name: "Telegramm",
+        href: "https://web.telegram.org/k/#@zumbost1k"
+    },
+];
+const linkList = links.map(function (link) {
+    return (
+        <li>
+            <Link className="link" to={link.href}>
+                {link.name}
+            </Link>
+        </li>
+    );
+});
 class Footer extends React.Component {
     constructor(props) {
         super(props);
     }
     render() {
-        const links = ["Twitter", "Linkedln", "RSS"];
-        const linksList = links.map(function (link) {
-            return (
-                <li>
-                    <Link className="link" to="/">
-                        {link}
-                    </Link>
-                </li>
-            );
-        });
         return (
             <div>
                 <footer className="footer_black_square">
@@ -57,7 +70,7 @@ class Footer extends React.Component {
                         dictumst. Fusce a nunc eget ligula.
                     </p>
                     <div className="links_padding">
-                        <ul className="links">{linksList}</ul>
+                        <ul className="links">{linkList}</ul>
                     </div>
 
                     <p className="copy_text">
