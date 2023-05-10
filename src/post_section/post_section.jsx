@@ -7,24 +7,27 @@ const links = [
         name: "github",
         src: "/photos/github.jpg",
         text: "Share on GitHub",
-        href: "https://github.com/zumbost1k"
+        href: "https://github.com/zumbost1k",
+        hasExtraClass: true
     },
     {
         name: "instagramm",
         src: "/photos/inst.jpg",
         text: "Share on Inst",
-        href: "https://www.instagram.com/misha_mch/?hl=ru"
+        href: "https://www.instagram.com/misha_mch/?hl=ru",
+        hasExtraClass: true
     },
     {
         name: "telegramm",
         src: "/photos/telegramm.jpg",
         text: "",
-        href: "https://web.telegram.org/k/#@zumbost1k"
+        href: "https://web.telegram.org/k/#@zumbost1k",
+        hasExtraClass: false
     },
 ];
 function LinkBottomFunction({ link }) {
     const className =
-        link.name === "telegramm" ? link.name : link.name + "_bottom_table";
+        link.hasExtraClass ? link.name + "_bottom_table" : link.name;
     return (
         <td className={className}>
             <Link className="no_decoration" to={link.href}>
@@ -42,7 +45,7 @@ function LinkBottomFunction({ link }) {
 }
 
 function LinkFunction({ link }) {
-    const className = link.name === "telegramm" ? link.name + " abyss" : link.name;
+    const className = link.hasExtraClass ? link.name : link.name + " abyss";
     return (
         <td className={className}>
             <Link to={link.href}>
@@ -142,11 +145,11 @@ const PostSection = () => {
                             </tr>
                         </table>
                         <p className="section_footer_text tags">
-                        Tags:&nbsp;<Link to="/" className="black_link">
+                            Tags:&nbsp;<Link to="/" className="black_link">
                                 product design,
                             </Link>
                             <Link to="/" className="black_link">
-                            &nbsp;culture
+                                &nbsp;culture
                             </Link>
                         </p>
                     </div>

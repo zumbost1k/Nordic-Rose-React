@@ -13,12 +13,12 @@ const SectionPhoto = () => {
             <section className="section_with_photo_home_page">
                 <h2 className="articles_home_page"> All articles</h2>
                 <div className="photo_home_page">
-                    {data.posts.map((item) => <Link to={"/posts/" + item.id} className="atribute_home_page">
-                        <img className="second_page_photos_home_page" width="304" height="176" src={item.thumbnail_url}
-                            alt={item.title} />
+                    {data.posts.map((post) => <Link to={"/posts/" + post.id} className="atribute_home_page">
+                        <img className="second_page_photos_home_page" width="304" height="176" src={post.thumbnail_url}
+                            alt={post.title} />
                         <div>
                             <p className="text_after_images_home_page">
-                                {item.title}
+                                {post.title}
                             </p>
                         </div>
                     </Link>)}

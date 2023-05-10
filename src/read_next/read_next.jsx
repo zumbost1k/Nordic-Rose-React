@@ -10,36 +10,30 @@ const ReadNext = () => {
             .then((response) => response.json())
             .then((json) => {
                 const currentPostId = parseInt(params.id)
-                const postsWithoutCurrent = json.posts.filter((post) => {
+                const postsWithoutCurrent = json.filter((post) => {
+                    console.log(currentPostId, post.id)
                     return post.id !== currentPostId;
                 });
                 setPosts({ posts: postsWithoutCurrent });
-      });
-
-        // const correcterArr = data.posts.filter((elem) => {
-        //     if (elem.id !== parseInt(current)) {
-        //         return true;
-        //     }
-        // });
-        // setPosts({ posts: correcterArr });
+            });
     }, [params]);
     return (
         <section className="additional_articles">
             <h2 className="read_next">What to read next</h2>
             <div className="photo">
-                {data.posts.map((link) => (
-                    <Link to={"/posts/" + link.id} className="decoration">
+                {data.posts.map((post) => (
+                    <Link to={"/posts/" + post.id} className="decoration">
                         &nbsp;
                         <div className="atribute">
                             <img
                                 className="second_page_photos"
                                 width="304"
                                 height="176"
-                                src={link.thumbnail_url}
-                                alt={link.title}
+                                src={post.thumbnail_url}
+                                alt={post.title}
                             />
                             <div>
-                                <p className="text_after_images">{link.title}</p>
+                                <p className="text_after_images">{post.title}</p>
                             </div>
                         </div>
                     </Link>
