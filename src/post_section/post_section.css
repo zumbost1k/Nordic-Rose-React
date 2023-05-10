@@ -71,19 +71,19 @@
     justify-content: space-between;
 }
 
-.facebook,
-.facebook_bottom_table {
+.github,
+.github_bottom_table {
     padding: 17px 43px 17px 43px;
 }
 
-.twitter,
-.twitter_bottom_table {
+.instagramm,
+.instagramm_bottom_table {
     padding: 17px 43px 17px 43px;
     border-right: 1px solid #EAEAEA;
     border-left: 1px solid #EAEAEA;
 }
 
-.phone {
+.telegramm {
     padding: 17px 43px 17px 43px;
 }
 
@@ -201,8 +201,8 @@
         display: none;
     }
 
-    .facebook,
-    .twitter {
+    .github,
+    .instagramm {
         padding: 17px 38px 17px 39px;
         border-right: 0;
     }
@@ -282,7 +282,7 @@
     }
 
     .share,
-    .phone {
+    .telegramm {
         display: none;
     }
 
@@ -301,13 +301,13 @@
         margin-top: -4px;
     }
 
-    .twitter_bottom_table {
+    .instagramm_bottom_table {
         border-right: 0;
         padding-right: 80px;
         padding-left: 80px;
     }
 
-    .facebook_bottom_table {
+    .github_bottom_table {
         padding-right: 71px;
         padding-left: 71px;
     }

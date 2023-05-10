@@ -3,12 +3,18 @@
 }
 
 .desktop_menu,
-.hoover_menu {
+.hover_menu {
     display: none;
 }
 
+.menu_link {
+    border: 0.5px solid black;
+    background-color: Gainsboro;
+}
 
 .top_padding_burger:hover .hover_menu {
+border: 0.5px solid black;
+    z-index: 2;
     display: flex;
     flex-direction: column;
     position: absolute;

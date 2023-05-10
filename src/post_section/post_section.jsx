@@ -4,27 +4,30 @@ import { Link, useParams } from "react-router-dom";
 
 const links = [
     {
-        name: "facebook",
-        src: "/photos/facebook.png",
-        text: "Share on Facebook",
+        name: "github",
+        src: "/photos/github.jpg",
+        text: "Share on GitHub",
+        href: "https://github.com/zumbost1k"
     },
     {
-        name: "twitter",
-        src: "/photos/twitter.png",
-        text: "Share on Twitter",
+        name: "instagramm",
+        src: "/photos/inst.jpg",
+        text: "Share on Inst",
+        href: "https://www.instagram.com/misha_mch/?hl=ru"
     },
     {
-        name: "phone",
-        src: "/photos/phone.png",
+        name: "telegramm",
+        src: "/photos/telegramm.jpg",
         text: "",
+        href: "https://web.telegram.org/k/#@zumbost1k"
     },
 ];
 function LinkListBottom({ link }) {
     const className =
-        link.name === "phone" ? link.name : link.name + "_bottom_table";
+        link.name === "telegramm" ? link.name : link.name + "_bottom_table";
     return (
         <td className={className}>
-            <Link className="no_decoration" to="/">
+            <Link className="no_decoration" to={link.href}>
                 <img
                     className="share_on_photo"
                     src={link.src}
@@ -39,10 +42,10 @@ function LinkListBottom({ link }) {
 }
 
 function LinkList({ link }) {
-    const className = link.name === "phone" ? link.name + " abyss" : link.name;
+    const className = link.name === "telegramm" ? link.name + " abyss" : link.name;
     return (
         <td className={className}>
-            <Link to="/">
+            <Link to={link.href}>
                 <img src={link.src} width="20" height="20" alt={link.name} />
             </Link>
         </td>
