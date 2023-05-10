@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './post_section.css';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 const links = [
     {
@@ -32,16 +32,15 @@ function LinksList({ link }) {
     </td>;
 }
 const PostSection = () => {
-
-    const [data, setPosts] = useState({ posts: [] })
+    const params = useParams();
+    const current = params.id;
+    const [data, setPosts] = useState({ posts: {} })
     useEffect(() => {
-        fetch(`https://dolphin-app-cbjj4.ondigitalocean.app/posts/${index}`)
+        fetch(`https://dolphin-app-cbjj4.ondigitalocean.app/posts/${current}`)
             .then(response => response.json())
             .then(data => setPosts({ posts: data }))
-    })
-    const formattedDate = new Date(data.posts.updated_at).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
-    const paramsString = document.location.href;
-    const index = paramsString.split("/").slice(-1)[0] 
+    }, [current])
+    const formattedDate = new Date(data.posts.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
     return (
         <div>
             <section className="second_section">
@@ -51,7 +50,7 @@ const PostSection = () => {
                             <img className="avatar" src="/photos/avatar.jpg" width="56" height="56" alt="avatar" />
                             <div className="text_about_author">
                                 <p className="author_name">Misha Matusevich</p>
-                                <p className="time"> <time datetime="YYYY-MM-DD">{formattedDate}</time> · {data.posts.content?Math.trunc(data.posts.content.length/250):"few"} min read</p>
+                                <p className="time"> <time datetime="YYYY-MM-DD">{formattedDate||"recently"}</time> · {data.posts.content ? Math.trunc(data.posts.content.length / 250) : "few"} min read</p>
                             </div>
                         </div>
                         <table className="table_with_photo">

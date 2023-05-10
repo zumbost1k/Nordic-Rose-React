@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import './read_next.css';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 const ReadNext = () => {
-    const paramsString = document.location.href;
-    const index = paramsString.split("/").slice(-1)[0]
+    const params = useParams();
+    const current = params.id;
     const [data, setPosts] = useState({ posts: [] })
     useEffect(() => {
         fetch("https://dolphin-app-cbjj4.ondigitalocean.app/users/misha/posts")
             .then(response => response.json())
             .then(data => setPosts({ posts: data }))
-        const correcterArr = data.posts.map(elem => {
-            if (elem.id !== parseInt(index)) { return elem }
-        }).filter(Boolean)
+        const correcterArr = data.posts.filter(elem => {
+            if (elem.id !== parseInt(current)) { return elem }
+        })
         setPosts({ posts: correcterArr })
-    })
+    }, [params])
     return (
         <section className="additional_articles">
             <h2 className="read_next">What to read next</h2>

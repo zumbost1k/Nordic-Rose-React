@@ -6,8 +6,8 @@ class Footer extends React.Component {
         super(props);
     }
     render() {
-        let links = ['Twitter', 'Linkedln', 'RSS'];
-        let linksList = links.map(function (link) {
+        const links = ['Twitter', 'Linkedln', 'RSS'];
+        const linksList = links.map(function (link) {
             return <li><Link className="link" to="/">{link}</Link></li>;
         })
         return (
