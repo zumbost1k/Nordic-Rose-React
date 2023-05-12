@@ -11,7 +11,6 @@ const ReadNext = () => {
             .then((json) => {
                 const currentPostId = parseInt(params.id)
                 const postsWithoutCurrent = json.filter((post) => {
-                    console.log(currentPostId, post.id)
                     return post.id !== currentPostId;
                 });
                 setPosts({ posts: postsWithoutCurrent });
