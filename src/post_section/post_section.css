@@ -1,5 +1,5 @@
-.list,
-.text_after_list,
+.post_body ol,
+.post_body ul,
 .end,
 .share_on {
     display: none;
@@ -10,6 +10,7 @@
 }
 
 .second_section_block {
+    padding-top: 42px;
     padding-left: 20px;
     padding-right: 20px;
     margin-left: auto;
@@ -19,6 +20,10 @@
 
 .inf_about_author {
     display: flex;
+}
+
+.avatar {
+    border-radius: 100%;
 }
 
 .author_of_post_info {
@@ -66,43 +71,37 @@
     justify-content: space-between;
 }
 
-.facebook,
-.facebook_bottom_table {
+.github,
+.github_bottom_table {
     padding: 17px 43px 17px 43px;
 }
 
-.twitter,
-.twitter_bottom_table {
+.instagramm,
+.instagramm_bottom_table {
     padding: 17px 43px 17px 43px;
     border-right: 1px solid #EAEAEA;
     border-left: 1px solid #EAEAEA;
 }
 
-.phone {
+.telegramm {
     padding: 17px 43px 17px 43px;
 }
 
-.author_comment {
-    padding-top: 32px;
-}
-
-.text_of_section {
+.post_body p,
+.post_body li {
+    padding-top: 24px;
     font-family: 'New York Medium';
     font-weight: 400;
     font-size: 16px;
     line-height: 170%;
 }
 
-.pipeline {
+.post_body h2 {
     padding-top: 42px;
     font-family: 'SF Pro Display';
     font-weight: 700;
     font-size: 26px;
     line-height: 31px;
-}
-
-.text_after_pipeline {
-    padding-top: 19px;
 }
 
 .rectangle {
@@ -121,14 +120,6 @@
     margin-right: auto;
     margin-left: auto;
     padding: 12px 20px 0px 20px;
-}
-
-.last_section_text {
-    padding-top: 42px;
-}
-
-.last_text_second {
-    padding-top: 35px;
 }
 
 .article_section_footer {
@@ -165,9 +156,10 @@
 }
 
 .big_avatar {
+    border-radius: 100%;
     float: left;
-    padding-right: 15px;
-    padding-bottom: 15px;
+    margin-right: 15px;
+    margin-bottom: 15px;
 }
 
 .big_avatar_text_bold {
@@ -209,8 +201,8 @@
         display: none;
     }
 
-    .facebook,
-    .twitter {
+    .github,
+    .instagramm {
         padding: 17px 38px 17px 39px;
         border-right: 0;
     }
@@ -266,11 +258,12 @@
         padding-top: 32px;
     }
 
-    .text_of_section {
+    .post_body p,
+    .post_body li {
         font-size: 20px;
     }
 
-    .pipeline {
+    .post_body h2 {
         font-size: 32px;
     }
 
@@ -282,15 +275,14 @@
         padding: 35px 30px;
     }
 
-    .list,
-    .text_after_list,
-    .end {
+    .post_body ol,
+    .post_body ul {
         display: block;
-        padding-top: 52px;
+        padding: 52px 0px;
     }
 
     .share,
-    .phone {
+    .telegramm {
         display: none;
     }
 
@@ -309,13 +301,13 @@
         margin-top: -4px;
     }
 
-    .twitter_bottom_table {
+    .instagramm_bottom_table {
         border-right: 0;
         padding-right: 80px;
         padding-left: 80px;
     }
 
-    .facebook_bottom_table {
+    .github_bottom_table {
         padding-right: 71px;
         padding-left: 71px;
     }
@@ -345,7 +337,7 @@
 
     .big_avatar {
         padding-top: 4px;
-        padding-right: 24px;
+        margin-right: 24px;
     }
 
     .big_avatar_text {
@@ -356,10 +348,6 @@
     .read_next {
         font-size: 44px;
         padding-top: 73px;
-    }
-
-    .additional_articles {
-        margin-top: 132px;
     }
 
     .sign_up_caption {

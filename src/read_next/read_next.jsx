@@ -1,59 +1,45 @@
-import React from 'react';
-import './read_next.css';
-import { Link } from 'react-router-dom';
-const links = [{
-    src: "/photos/1.jpg",
-    alt: "Granny gives everyone the finger",
-    text: "Granny gives everyone the finger, and other tips from OFFF Barcelona",
-},
-{
-    src: "/photos/2.jpg",
-    alt: "Hello world",
-    text: "Hello world, or, in other words, why this blog exists",
-},
-{
-    src: "/photos/3.jpg",
-    alt: "regarding how wework",
-    text: "Here are some things you should know regarding how we work ",
-},
-{
-    src: "/photos/4.jpg",
-    alt: "remote work",
-    text: "Updating list of 50+ sources on distributed teams, remote work, and how to make it all",
-},
-{
-    src: "/photos/5.jpg",
-    alt: "A few words about this blog platform",
-    text: "A few words about this blog platform, Ghost, and how this site was made",
-},
-{
-    src: "/photos/6.jpg",
-    alt: "modern remote working",
-    text: "How modern remote working tools get along with Old School Cowboy's methods",
-},
-];
-const linksList = links.map(function (link, index) {
-    return <Link to={"/posts/" + index} className='decoration'> <div className="atribute">
-        <img className="second_page_photos" width="304" height="176" src={link.src}
-            alt={link.alt} />
-        <div>
-            <p className="text_after_images">{link.text}</p>
-        </div>
-    </div></Link>;
-})
-class ReadNext extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-    render() {
-        return (
-            <section className="additional_articles">
-                <h2 className="read_next">What to read next</h2>
-                <div className="photo">
-                    {linksList}
-                </div>
-            </section>
-        );
-    }
+import React, { useEffect, useState } from "react";
+import "./read_next.css";
+import { Link, useParams } from "react-router-dom";
+
+const ReadNext = () => {
+    const params = useParams();
+    const [data, setPosts] = useState({ posts: [] });
+    useEffect(() => {
+        fetch("https://dolphin-app-cbjj4.ondigitalocean.app/users/misha/posts")
+            .then((response) => response.json())
+            .then((json) => {
+                const currentPostId = parseInt(params.id)
+                const postsWithoutCurrent = json.filter((post) => {
+                    console.log(currentPostId, post.id)
+                    return post.id !== currentPostId;
+                });
+                setPosts({ posts: postsWithoutCurrent });
+            });
+    }, [params]);
+    return (
+        <section className="additional_articles">
+            <h2 className="read_next">What to read next</h2>
+            <div className="photo">
+                {data.posts.map((post) => (
+                    <Link to={"/posts/" + post.id} className="decoration">
+                        &nbsp;
+                        <div className="atribute">
+                            <img
+                                className="second_page_photos"
+                                width="304"
+                                height="176"
+                                src={post.thumbnail_url}
+                                alt={post.title}
+                            />
+                            <div>
+                                <p className="text_after_images">{post.title}</p>
+                            </div>
+                        </div>
+                    </Link>
+                ))}
+            </div>
+        </section>
+    );
 };
 export default ReadNext;
