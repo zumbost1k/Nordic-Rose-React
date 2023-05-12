@@ -25,7 +25,7 @@ const links = [
         hasExtraClass: false
     },
 ];
-function LinkBottomFunction({ link }) {
+function LinksBottom({ link }) {
     const className =
         link.hasExtraClass ? link.name + "_bottom_table" : link.name;
     return (
@@ -44,7 +44,7 @@ function LinkBottomFunction({ link }) {
     );
 }
 
-function LinkFunction({ link }) {
+function Links({ link }) {
     const className = link.hasExtraClass ? link.name : link.name + " abyss";
     return (
         <td className={className}>
@@ -97,7 +97,7 @@ const PostSection = () => {
                         <table className="table_with_photo">
                             <tr className="table_of_contact">
                                 {links.map((link) => (
-                                    <LinkFunction link={link} />
+                                    <Links link={link} />
                                 ))}
                             </tr>
                         </table>
@@ -140,7 +140,7 @@ const PostSection = () => {
                         <table className="table_footer">
                             <tr className="table_of_contact_second">
                                 {links.map((link) => (
-                                    <LinkBottomFunction link={link} />
+                                    <LinksBottom link={link} />
                                 ))}
                             </tr>
                         </table>
