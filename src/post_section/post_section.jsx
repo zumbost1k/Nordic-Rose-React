@@ -27,7 +27,7 @@ const links = [
 ];
 function LinksBottom({ link }) {
     const className =
-        link.hasExtraClass ? link.name + "_bottom_table" : link.name;
+        link.hasExtraClass ? link.name + " bottom_table" : link.name;
     return (
         <td className={className}>
             <Link className="no_decoration" to={link.href}>

@@ -71,13 +71,11 @@
     justify-content: space-between;
 }
 
-.github,
-.github_bottom_table {
+.github {
     padding: 17px 43px 17px 43px;
 }
 
-.instagramm,
-.instagramm_bottom_table {
+.instagramm {
     padding: 17px 43px 17px 43px;
     border-right: 1px solid #EAEAEA;
     border-left: 1px solid #EAEAEA;
@@ -301,15 +299,10 @@
         margin-top: -4px;
     }
 
-    .instagramm_bottom_table {
+    .bottom_table {
         border-right: 0;
         padding-right: 80px;
         padding-left: 80px;
-    }
-
-    .github_bottom_table {
-        padding-right: 71px;
-        padding-left: 71px;
     }
 
     .table_of_contact_second {
