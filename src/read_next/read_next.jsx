@@ -52,7 +52,11 @@ const ReadNext = () => {
                     {
                         getData(current, size).map((post, index) => {
                             return (
-                                <Link to={"/posts/" + post.id} className="decoration">
+                                <Link onClick={window.scrollTo({
+                                    top: 0,
+                                    left: 0,
+                                    behavior: 'smooth',
+                                })} to={"/posts/" + post.id} className="decoration">
                                     <div className="atribute">
                                         <img
                                             className="second_page_photos"
