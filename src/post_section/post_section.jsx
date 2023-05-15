@@ -40,7 +40,7 @@ function LinksBottom({ link }) {
                 />
                 <p className="share_on">{link.text}</p>
             </Link>
-        </td>
+        </td >
     );
 }
 
