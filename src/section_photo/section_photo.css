@@ -15,11 +15,12 @@
 }
 
 .pagenation {
-    padding-top: 30px;
+    margin-top: 30px;
     font-family: 'New York Extra Large';
     font-size: 16px;
     line-height: 38px;
     margin-left: 35%;
+    justify-content: center;
 }
 
 .pagenation_button {
@@ -69,6 +70,7 @@
 }
 
 .decoration {
+    height: 280px;
     text-decoration: none;
     color: black;
 }
@@ -104,8 +106,10 @@
         width: 282px;
     }
 }
-@media(min-width:1024px){
+
+@media(min-width:1024px) {
+
     .pagenation {
-        margin-left: 30%;
+        justify-content: center;
     }
 }

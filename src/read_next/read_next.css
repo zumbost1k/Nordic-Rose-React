@@ -4,11 +4,13 @@
 }
 
 .pagenation_post {
-    padding-top: 30px;
+    margin-top: 60px;
     font-family: 'New York Extra Large';
     font-size: 16px;
     line-height: 38px;
-    margin-left: 40%;
+    margin-left: 20%;
+    margin-right: auto;
+    justify-content: center;
 }
 
 .pagenation_button_post {
@@ -73,6 +75,10 @@
 
     .additional_articles {
         margin-top: 132px;
+    }
+
+    .pagenation_post {
+        margin-left: 40%;
     }
 }
 

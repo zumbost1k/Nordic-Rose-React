@@ -145,12 +145,13 @@ const PostSection = () => {
                             </tr>
                         </table>
                         <p className="section_footer_text tags">
-                            Tags:&nbsp;<Link to="/" className="black_link">
-                                product design,
-                            </Link>
-                            <Link to="/" className="black_link">
-                                &nbsp;culture
-                            </Link>
+                            Tags:{
+                            data.posts.all_tags_list ? data.posts.all_tags_list.map(tag => {
+                                return (<Link to="/" className="black_link">
+                                    {tag + " "}
+                                </Link>)
+                            }) : <Link to="/" className="black_link">Loading...</Link>
+                            }
                         </p>
                     </div>
                     <div className="comment_from_author">
