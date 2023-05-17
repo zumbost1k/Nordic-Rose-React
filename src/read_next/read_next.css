@@ -2,7 +2,13 @@
     display: flex;
     gap: 20px;
 }
-
+.rc-pagination-item-active{
+    background-color: rgb(170, 168, 168);
+    appearance: none;
+    border: 0;
+    border-radius: 5px;
+    padding: 0 8px;
+}
 .pagenation_post {
     margin-top: 60px;
     font-family: 'New York Extra Large';
