@@ -52,11 +52,7 @@ const ReadNext = () => {
                     {
                         getData(current, size).map((post, index) => {
                             return (
-                                <Link onClick={window.scrollTo({
-                                    top: 0,
-                                    left: 0,
-                                    behavior: 'smooth',
-                                })} to={"/posts/" + post.id} className="decoration">
+                                <Link  to={"/posts/" + post.id} className="decoration">
                                     <div className="atribute">
                                         <img
                                             className="second_page_photos"
@@ -79,7 +75,7 @@ const ReadNext = () => {
                     <Pagination
                         className="pagination_data_post"
                         onChange={paginationChange}
-                        total={data.posts ? data.posts.length : 1}
+                        total={data.posts ? data.posts.length : ""}
                         current={current}
                         pageSize={size}
                         showSizeChanger={false}
