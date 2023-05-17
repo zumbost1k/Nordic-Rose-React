@@ -36,10 +36,10 @@ const ReadNext = () => {
 
     const PrevNextArrow = (current, type, originalElement) => {
         if (type === 'prev') {
-            return <button className="pagenation_button">Prev</button>;
+            return <button className="pagenation_button_post">Prev</button>;
         }
         if (type === 'next') {
-            return <button className="pagenation_button">Next</button>;
+            return <button className="pagenation_button_post">Next</button>;
         }
         return originalElement;
     }
@@ -75,9 +75,9 @@ const ReadNext = () => {
                     }
 
                 </div>
-                <div className="pagenation">
+                <div className="pagenation_post">
                     <Pagination
-                        className="pagination_data"
+                        className="pagination_data_post"
                         onChange={PaginationChange}
                         total={data.posts ? data.posts.length : 1}
                         current={current}

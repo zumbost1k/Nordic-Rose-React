@@ -9,6 +9,27 @@
     position: relative;
 }
 
+.pagination_data {
+    display: flex;
+    gap: 20px;
+}
+
+.pagenation {
+    padding-top: 30px;
+    font-family: 'New York Extra Large';
+    font-size: 16px;
+    line-height: 38px;
+    margin-left: 35%;
+}
+
+.pagenation_button {
+    appearance: none;
+    border: 0;
+    border-radius: 5px;
+    background: black;
+    color: #fff;
+}
+
 .photo_home_page {
     max-width: 304px;
     display: flex;
@@ -81,5 +102,10 @@
         margin-left: auto;
         margin-right: auto;
         width: 282px;
+    }
+}
+@media(min-width:1024px){
+    .pagenation {
+        margin-left: 30%;
     }
 }
