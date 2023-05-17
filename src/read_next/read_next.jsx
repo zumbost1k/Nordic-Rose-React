@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Pagination from "https://cdn.skypack.dev/rc-pagination@3.1.15";
+import Pagination from 'rc-pagination';
 import './read_next.css';
 import { Link, useParams } from "react-router-dom";
 const ReadNext = () => {
@@ -19,7 +19,7 @@ const ReadNext = () => {
                 setPosts({ posts: postsWithoutCurrent });
             });
     }, [params]);
-    const PerPageChange = (value) => {
+    const perPageChange = (value) => {
         setSize(value);
         const newPerPage = data.posts ? Math.ceil(data.posts.length / value) : 1;
         if (current > newPerPage) {
@@ -29,17 +29,17 @@ const ReadNext = () => {
     const getData = (current, pageSize) => {
         return data.posts ? data.posts.slice((current - 1) * pageSize, current * pageSize) : 1;
     };
-    const PaginationChange = (page, pageSize) => {
+    const paginationChange = (page, pageSize) => {
         setCurrent(page);
         setSize(pageSize)
     }
 
-    const PrevNextArrow = (current, type, originalElement) => {
+    const prevNextArrow = (current, type, originalElement) => {
         if (type === 'prev') {
-            return <button className="pagenation_button_post">Prev</button>;
+            return <button className="pagination_button_post">Prev</button>;
         }
         if (type === 'next') {
-            return <button className="pagenation_button_post">Next</button>;
+            return <button className="pagination_button_post">Next</button>;
         }
         return originalElement;
     }
@@ -75,16 +75,16 @@ const ReadNext = () => {
                     }
 
                 </div>
-                <div className="pagenation_post">
+                <div className="pagination_post">
                     <Pagination
                         className="pagination_data_post"
-                        onChange={PaginationChange}
+                        onChange={paginationChange}
                         total={data.posts ? data.posts.length : 1}
                         current={current}
                         pageSize={size}
                         showSizeChanger={false}
-                        itemRender={PrevNextArrow}
-                        onShowSizeChange={PerPageChange}
+                        itemRender={prevNextArrow}
+                        onShowSizeChange={perPageChange}
                     />
                 </div>
             </section>

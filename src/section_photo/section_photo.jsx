@@ -1,38 +1,38 @@
 import React, { useEffect, useState } from 'react';
-import './section_photo.css';
-import Pagination from "https://cdn.skypack.dev/rc-pagination@3.1.15";
 import { Link, useParams } from "react-router-dom";
+import Pagination from 'rc-pagination';
+import './section_photo.css';
 const SectionPhoto = () => {
-    const [perPage, setPerPage] = useState(2);
-    const [size, setSize] = useState(perPage);
-    const [current, setCurrent] = useState(1);
+    const [postsPerPage, setPostsPerPage] = useState(2);
+    const [paginationSize, setPaginationSize] = useState(postsPerPage);
+    const [currentPageNumber, setCurrentPageNumber] = useState(1);
     const [data, setPosts] = useState({ posts: [] })
     useEffect(() => {
         fetch("https://dolphin-app-cbjj4.ondigitalocean.app/users/misha/posts")
             .then(response => response.json())
             .then(data => setPosts({ posts: data }))
     }, [])
-    const PerPageChange = (value) => {
-        setSize(value);
+    const perPageChange = (value) => {
+        setPaginationSize(value);
         const newPerPage = data.posts ? Math.ceil(data.posts.length / value) : 1;
-        if (current > newPerPage) {
-            setCurrent(newPerPage);
+        if (currentPageNumber > newPerPage) {
+            setCurrentPageNumber(newPerPage);
         }
     }
-    const getData = (current, pageSize) => {
-        return data.posts ? data.posts.slice((current - 1) * pageSize, current * pageSize) : 1;
+    const getData = (currentPageNumber, pageSize) => {
+        return data.posts ? data.posts.slice((currentPageNumber - 1) * pageSize, currentPageNumber * pageSize) : 1;
     };
-    const PaginationChange = (page, pageSize) => {
-        setCurrent(page);
-        setSize(pageSize)
+    const paginationChange = (page, pageSize) => {
+        setCurrentPageNumber(page);
+        setPaginationSize(pageSize)
     }
 
-    const PrevNextArrow = (current, type, originalElement) => {
+    const prevNextArrow = (currentPageNumber, type, originalElement) => {
         if (type === 'prev') {
-            return <button className="pagenation_button">Prev</button>;
+            return <button className="pagination_button">Prev</button>;
         }
         if (type === 'next') {
-            return <button className="pagenation_button">Next</button>;
+            return <button className="pagination_button">Next</button>;
         }
         return originalElement;
     }
@@ -42,9 +42,9 @@ const SectionPhoto = () => {
                 <h2 className="articles_home_page"> All articles</h2>
                 <div className="photo_home_page">
                     {
-                        getData(current, size).map((post, index) => {
+                        getData(currentPageNumber, paginationSize).map((post, index) => {
                             return (
-                                <Link 
+                                <Link
                                     to={"/posts/" + post.id} className="atribute_home_page">
                                     <img className="second_page_photos_home_page" width="304" height="176" src={post.thumbnail_url}
                                         alt={post.title} />
@@ -59,16 +59,16 @@ const SectionPhoto = () => {
                     }
 
                 </div>
-                <div className="pagenation">
+                <div className="pagination">
                     <Pagination
                         className="pagination_data"
-                        onChange={PaginationChange}
+                        onChange={paginationChange}
                         total={data.posts ? data.posts.length : 1}
-                        current={current}
-                        pageSize={size}
+                        current={currentPageNumber}
+                        pageSize={paginationSize}
                         showSizeChanger={false}
-                        itemRender={PrevNextArrow}
-                        onShowSizeChange={PerPageChange}
+                        itemRender={prevNextArrow}
+                        onShowSizeChange={perPageChange}
                     />
                 </div>
             </section>

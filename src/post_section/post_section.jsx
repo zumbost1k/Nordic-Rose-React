@@ -40,7 +40,7 @@ function LinksBottom({ link }) {
                 />
                 <p className="share_on">{link.text}</p>
             </Link>
-        </td >
+        </td>
     );
 }
 
@@ -67,6 +67,8 @@ const PostSection = () => {
         "en-US",
         { year: "numeric", month: "short", day: "numeric" }
     );
+    console.log("hi ", data.posts.all_tags_list)
+
     return (
         <div>
             <section className="second_section">
@@ -144,15 +146,11 @@ const PostSection = () => {
                                 ))}
                             </tr>
                         </table>
-                        <p className="section_footer_text tags">
-                            Tags:{
-                            data.posts.all_tags_list ? data.posts.all_tags_list.map(tag => {
-                                return (<Link to="/" className="black_link">
-                                    {tag + " "}
-                                </Link>)
-                            }) : <Link to="/" className="black_link">Loading...</Link>
-                            }
-                        </p>
+                        {data.posts.all_tags_list ? data.posts.all_tags_list.length !== 0 ? <p className="section_footer_text tags">Tags: {data.posts.all_tags_list.map(tag => {
+                            return (<Link to="/" className="black_link">
+                                {tag + " "}
+                            </Link>)
+                        })}  </p> : "" : ""}
                     </div>
                     <div className="comment_from_author">
                         <img
