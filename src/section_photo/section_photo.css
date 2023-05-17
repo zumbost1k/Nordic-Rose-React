@@ -10,7 +10,7 @@
 }
 
 .pagination_data {
-    display: flex;
+    display: inline-flex;
     gap: 20px;
 }
 
@@ -19,8 +19,6 @@
     font-family: 'New York Extra Large';
     font-size: 16px;
     line-height: 38px;
-    margin-left: 35%;
-    justify-content: center;
 }
 
 .pagination_button {
@@ -104,12 +102,5 @@
         margin-left: auto;
         margin-right: auto;
         width: 282px;
-    }
-}
-
-@media(min-width:1024px) {
-
-    .pagination {
-        justify-content: center;
     }
 }

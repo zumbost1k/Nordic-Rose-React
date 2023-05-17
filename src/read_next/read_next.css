@@ -1,5 +1,5 @@
 .pagination_data_post {
-    display: flex;
+    display: inline-flex;
     gap: 20px;
 }
 .rc-pagination-item-active{
@@ -14,9 +14,6 @@
     font-family: 'New York Extra Large';
     font-size: 16px;
     line-height: 38px;
-    margin-left: 20%;
-    margin-right: auto;
-    justify-content: center;
 }
 
 .pagination_button_post {
@@ -82,10 +79,6 @@
     .additional_articles {
         margin-top: 132px;
     }
-
-    .pagination_post {
-        margin-left: 40%;
-    }
 }
 
 @media (min-width:1024px) {
@@ -100,9 +93,5 @@
         margin-top: 34px;
         color: black;
         text-decoration: none;
-    }
-
-    .pagination_post {
-        margin-left: 45%;
     }
 }
