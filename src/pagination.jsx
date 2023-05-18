@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Pagination from 'rc-pagination';
-const PaginationShower = (postsNumber, postsArray, contentToShow) => {
+const PaginationDisplay = ({ postsNumber, postsArray, contentToShow }) => {
     const [postsPerPage, setPostsPerPage] = useState(postsNumber);
     const [paginationSize, setPaginationSize] = useState(postsPerPage);
     const [currentPageNumber, setCurrentPageNumber] = useState(1);
@@ -13,6 +13,7 @@ const PaginationShower = (postsNumber, postsArray, contentToShow) => {
         }
     }
     const getData = (currentPageNumber, pageSize) => {
+        console.log("hi", postsArray)
         return postsArray.slice((currentPageNumber - 1) * pageSize, currentPageNumber * pageSize);
     };
     const paginationChange = (page, pageSize) => {
@@ -50,8 +51,6 @@ const PaginationShower = (postsNumber, postsArray, contentToShow) => {
                 onShowSizeChange={perPageChange}
             />
         </div>
-
     </>)
 }
-
-export default PaginationShower
+export default PaginationDisplay
