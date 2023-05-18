@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Pagination from 'rc-pagination';
+import "./pagination.css"
 const PaginationDisplay = ({ postsNumber, postsArray, contentToShow }) => {
     const [postsPerPage, setPostsPerPage] = useState(postsNumber);
     const [paginationSize, setPaginationSize] = useState(postsPerPage);

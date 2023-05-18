@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from "react-router-dom";
 import './section_photo.css';
-import PaginationDisplay from '../pagination';
+import PaginationDisplay from '../pagination/pagination';
 const SectionPhoto = () => {
     const [data, setPosts] = useState({ post: [] })
     const [isLoading, setIsLoading] = useState({ process: true });
