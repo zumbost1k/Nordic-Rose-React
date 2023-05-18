@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import Pagination from 'rc-pagination';
+// import Pagination from 'rc-pagination';
 import './read_next.css';
 import { Link, useParams } from "react-router-dom";
+import PaginationFunction from '../pagination';
 const ReadNext = () => {
-    const [postsPerPage, setPostsPerPage] = useState(3);
-    const [paginationSize, setPaginationSize] = useState(postsPerPage);
-    const [currentPageNumber, setCurrentPageNumber] = useState(1);
+    // const [postsPerPage, setPostsPerPage] = useState(3);
+    // const [paginationSize, setPaginationSize] = useState(postsPerPage);
+    // const [currentPageNumber, setCurrentPageNumber] = useState(1);
     const params = useParams();
     const [data, setPosts] = useState({ post: [] });
     const [isLoading, setIsLoading] = useState({ process: true });
+
     useEffect(() => {
         fetch("https://dolphin-app-cbjj4.ondigitalocean.app/users/misha/posts")
             .then((response) => response.json())
@@ -21,38 +23,58 @@ const ReadNext = () => {
                 setIsLoading({ process: false })
             });
     }, [params]);
+    const readNext = (post) => {
+        return (
+            <div className='photo'>
+                <Link to={"/posts/" + post.id} className="decoration">
+                <div className="atribute">
+                    <img
+                        className="second_page_photos"
+                        width="304"
+                        height="176"
+                        src={post.thumbnail_url}
+                        alt={post.title}
+                    />
+                    <div>
+                        <p className="text_after_images">{post.title}</p>
+                    </div>
+                </div>
+            </Link></div>
+        )
 
+    }
     if (!isLoading.process) {
-        const perPageChange = (value) => {
-            setPaginationSize(value);
-            const newPerPage = Math.ceil(data.post.length / value);
-            if (currentPageNumber > newPerPage) {
-                setCurrentPageNumber(newPerPage);
-            }
-        }
-        const getData = (currentPageNumber, pageSize) => {
-            return data.post.slice((currentPageNumber - 1) * pageSize, currentPageNumber * pageSize);
-        };
-        const paginationChange = (page, pageSize) => {
-            setCurrentPageNumber(page);
-            setPaginationSize(pageSize)
-        }
+        // const perPageChange = (value) => {
+        //     setPaginationSize(value);
+        //     const newPerPage = Math.ceil(data.post.length / value);
+        //     if (currentPageNumber > newPerPage) {
+        //         setCurrentPageNumber(newPerPage);
+        //     }
+        // }
+        // const getData = (currentPageNumber, pageSize) => {
+        //     return data.post.slice((currentPageNumber - 1) * pageSize, currentPageNumber * pageSize);
+        // };
+        // const paginationChange = (page, pageSize) => {
+        //     setCurrentPageNumber(page);
+        //     setPaginationSize(pageSize)
+        // }
 
-        const prevNextArrow = (currentPageNumber, type, originalElement) => {
-            if (type === 'prev') {
-                return <button className="pagination_button_post">Prev</button>;
-            }
-            if (type === 'next') {
-                return <button className="pagination_button_post">Next</button>;
-            }
-            return originalElement;
-        }
+        // const prevNextArrow = (currentPageNumber, type, originalElement) => {
+        //     if (type === 'prev') {
+        //         return <button className="pagination_button_post">Prev</button>;
+        //     }
+        //     if (type === 'next') {
+        //         return <button className="pagination_button_post">Next</button>;
+        //     }
+        //     return originalElement;
+        // }
         return (
 
             <>
                 <section className="additional_articles">
                     <h2 className="read_next">What to read next</h2>
-                    <div className="photo">
+                    <PaginationFunction postsNumber={3} postsArray={data.post} contentToShow={readNext} />
+                    {/* <div className="photo">
                         {
                             getData(currentPageNumber, paginationSize).map((post, index) => {
                                 return (
@@ -85,7 +107,8 @@ const ReadNext = () => {
                             itemRender={prevNextArrow}
                             onShowSizeChange={perPageChange}
                         />
-                    </div>
+                    </div> */}
+
                 </section>
 
             </>
