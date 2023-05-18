@@ -14,7 +14,6 @@ const PaginationDisplay = ({ postsNumber, postsArray, contentToShow }) => {
         }
     }
     const getData = (currentPageNumber, pageSize) => {
-        console.log("hi", postsArray)
         return postsArray.slice((currentPageNumber - 1) * pageSize, currentPageNumber * pageSize);
     };
     const paginationChange = (page, pageSize) => {
