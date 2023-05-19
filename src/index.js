@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import HomePage from './HomePage';
-import PostPage from './PostPage';
+import HomePage from './pages/HomePage';
+import PostPage from './pages/PostPage';
 import './style_reset.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 

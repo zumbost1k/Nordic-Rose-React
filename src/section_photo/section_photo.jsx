@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from "react-router-dom";
 import './section_photo.css';
-import PaginationDisplay from '../pagination/pagination';
+import PaginationDisplay from '../pagination/getData';
 const SectionPhoto = () => {
     const [data, setPosts] = useState({ post: [] })
     const [isLoading, setIsLoading] = useState({ process: true });
@@ -34,7 +34,7 @@ const SectionPhoto = () => {
                 <section className="section_with_photo_home_page">
                     <h2 className="articles_home_page"> All articles</h2>
                     {
-                        <PaginationDisplay postsNumber={3} postsArray={data.post} contentToShow={sectionPhoto} />
+                        <PaginationDisplay postsNumber={2} postsArray={data.post} contentToShow={sectionPhoto} />
                     }
                 </section>
 

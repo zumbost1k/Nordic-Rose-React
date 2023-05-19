@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './read_next.css';
 import { Link, useParams } from "react-router-dom";
-import PaginationDisplay from '../pagination/pagination';
+import PaginationDisplay from '../pagination/getData';
 const ReadNext = () => {
     const params = useParams();
     const [data, setPosts] = useState({ post: [] });
