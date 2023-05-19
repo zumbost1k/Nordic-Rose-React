@@ -13,6 +13,14 @@
     line-height: 38px;
 }
 
+.decoration_post {
+    margin-left: auto;
+    margin-right: auto;
+    height: 280px;
+    text-decoration: none;
+    color: black;
+}
+
 .additional_articles:before {
     content: url("eyes.png");
     position: absolute;

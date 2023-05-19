@@ -22,7 +22,7 @@ const ReadNext = () => {
     const readNext = (post) => {
         return (
             <div className='photo'>
-                <Link to={"/posts/" + post.id} className="decoration">
+                <Link to={"/posts/" + post.id} className="decoration_post">
                     <div className="atribute">
                         <img
                             className="second_page_photos"
