@@ -6,14 +6,18 @@ const SignUp = () => {
   const handleChange = (event) => {
     setEmail(event.target.value);
   }
+
+  const EMAIL_REGEXP = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
   const handleSubmit = () => {
-    fetch("https://dolphin-app-cbjj4.ondigitalocean.app/users/misha/subscribers", {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ email })
-    })
+    if (EMAIL_REGEXP.test(email)) {
+      fetch("https://dolphin-app-cbjj4.ondigitalocean.app/users/misha/subscribers", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email })
+      })
+    }
   }
 
   return (
