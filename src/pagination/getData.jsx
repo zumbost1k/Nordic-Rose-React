@@ -1,5 +1,5 @@
 import React, {  useState } from 'react';
-import "./pagination.css"
+import './pagination.css'
 import PaginationDisplay from '../pagination/pagination';
 const GetData = ({ postsNumber, postsArray, contentToShow }) => {
     const [paginationSize, setPaginationSize] = useState(postsNumber);
@@ -21,10 +21,10 @@ const GetData = ({ postsNumber, postsArray, contentToShow }) => {
 
     const prevNextArrow = (currentPageNumber, type, originalElement) => {
         if (type === 'prev') {
-            return <button className="pagination_button_post">Prev</button>;
+            return <button className='pagination_button_post'>Prev</button>;
         }
         if (type === 'next') {
-            return <button className="pagination_button_post">Next</button>;
+            return <button className='pagination_button_post'>Next</button>;
         }
         return originalElement;
     }

@@ -4,7 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import PaginationDisplay from '../pagination/getData';
 const ReadNext = () => {
     const params = useParams();
-    const [data, setPosts] = useState({ post: [] });
+    const [data, setPosts] = useState({ posts: [] });
     const [isLoading, setIsLoading] = useState({ process: true });
     const [totalPages, setTotalPages] = useState(0)
     useEffect(() => {
@@ -15,7 +15,7 @@ const ReadNext = () => {
                 const postsWithoutCurrent = json.posts.filter((post) => {
                     return post.id !== currentPostId;
                 });
-                setPosts({ post: postsWithoutCurrent });
+                setPosts({ posts: postsWithoutCurrent });
                 setIsLoading({ process: false })
                 setTotalPages(data.total_pages)
             });
@@ -23,17 +23,17 @@ const ReadNext = () => {
     const readNext = (post) => {
         return (
             <div className='photo'>
-                <Link to={"/posts/" + post.id} className="decoration_post">
-                    <div className="atribute">
+                <Link to={'/posts/' + post.id} className='decoration_post'>
+                    <div className='atribute'>
                         <img
-                            className="second_page_photos"
-                            width="304"
-                            height="176"
+                            className='second_page_photos'
+                            width='304'
+                            height='176'
                             src={post.thumbnail_url}
                             alt={post.title}
                         />
                         <div>
-                            <p className="text_after_images">{post.title}</p>
+                            <p className='text_after_images'>{post.title}</p>
                         </div>
                     </div>
                 </Link></div>
@@ -44,9 +44,9 @@ const ReadNext = () => {
         return (
 
             <>
-                <section className="additional_articles">
-                    <h2 className="read_next">What to read next</h2>
-                    <PaginationDisplay postsNumber={3} postsArray={data.post} contentToShow={readNext} />
+                <section className='additional_articles'>
+                    <h2 className='read_next'>What to read next</h2>
+                    <PaginationDisplay postsNumber={3} postsArray={data.posts} contentToShow={readNext} />
                 </section>
 
             </>

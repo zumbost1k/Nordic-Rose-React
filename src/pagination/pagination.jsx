@@ -2,9 +2,9 @@ import React from 'react';
 import Pagination from 'rc-pagination';
 const PaginationDisplay = (props) => {
     return (<>
-        <div className="pagination_post">
+        <div className='pagination_post'>
             <Pagination
-                className="pagination_data_post"
+                className='pagination_data_post'
                 onChange={props.paginationChange}
                 total={props.postsArrayLength}
                 current={props.currentPageNumber}
