@@ -5,10 +5,14 @@ import PaginationDisplay from '../pagination/getData';
 const SectionPhoto = () => {
     const [data, setPosts] = useState({ post: [] })
     const [isLoading, setIsLoading] = useState({ process: true });
+    const [totalPages, setTotalPages] = useState(0)
     useEffect(() => {
         fetch("https://dolphin-app-cbjj4.ondigitalocean.app/users/misha/posts")
             .then(response => response.json())
-            .then(data => setPosts({ post: data }))
+            .then(data => {
+                setPosts({ post: data.posts })
+                setTotalPages(data.total_pages)
+            })
         setIsLoading({ process: false })
     }, [])
     if (!isLoading.process) {

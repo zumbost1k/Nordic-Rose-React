@@ -4,7 +4,6 @@ import PaginationDisplay from '../pagination/pagination';
 const GetData = ({ postsNumber, postsArray, contentToShow }) => {
     const [paginationSize, setPaginationSize] = useState(postsNumber);
     const [currentPageNumber, setCurrentPageNumber] = useState(1);
-
     const perPageChange = (value) => {
         setPaginationSize(value);
         const newPerPage = Math.ceil(postsArray.length / value);

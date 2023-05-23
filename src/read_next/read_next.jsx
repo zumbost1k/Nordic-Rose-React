@@ -6,17 +6,18 @@ const ReadNext = () => {
     const params = useParams();
     const [data, setPosts] = useState({ post: [] });
     const [isLoading, setIsLoading] = useState({ process: true });
-
+    const [totalPages, setTotalPages] = useState(0)
     useEffect(() => {
         fetch("https://dolphin-app-cbjj4.ondigitalocean.app/users/misha/posts")
             .then((response) => response.json())
             .then((json) => {
                 const currentPostId = parseInt(params.id)
-                const postsWithoutCurrent = json.filter((post) => {
+                const postsWithoutCurrent = json.posts.filter((post) => {
                     return post.id !== currentPostId;
                 });
                 setPosts({ post: postsWithoutCurrent });
                 setIsLoading({ process: false })
+                setTotalPages(data.total_pages)
             });
     }, [params]);
     const readNext = (post) => {
