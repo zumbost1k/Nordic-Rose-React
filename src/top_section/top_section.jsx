@@ -2,9 +2,6 @@ import React from 'react';
 import './top_section.css';
 
 class TopSection extends React.Component {
-    constructor(props) {
-        super(props);
-    }
     render() {
         return (
             <div>
@@ -13,7 +10,7 @@ class TopSection extends React.Component {
                         <picture>
                             <source media="(max-width:854px)" width="375" height="234" srcset="photos/top_photo_mobile.jpg" />
                             <source media="(max-width:854px)" width="854" height="533" srcset="photos/desktop.jpg" />
-                            <img src="photos/big_desktop.png" width="854" height="533" alt="big photo" />
+                            <img src="photos/big_desktop.png" width="854" height="533" alt="big" />
                         </picture>
                     </div>
                     <div>

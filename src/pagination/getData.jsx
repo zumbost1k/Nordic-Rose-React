@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {  useState } from 'react';
 import "./pagination.css"
 import PaginationDisplay from '../pagination/pagination';
 const GetData = ({ postsNumber, postsArray, contentToShow }) => {

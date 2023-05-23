@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import './section_photo.css';
 import PaginationDisplay from '../pagination/getData';
 const SectionPhoto = () => {

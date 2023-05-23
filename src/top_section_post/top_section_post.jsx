@@ -2,9 +2,6 @@ import React from "react";
 import "./top_section_post.css";
 
 class TopSectionPost extends React.Component {
-    constructor(props) {
-        super(props);
-    }
     render() {
         return (
             <div>
@@ -37,7 +34,7 @@ class TopSectionPost extends React.Component {
                                 height="900"
                                 srcset="/photos/big_desktop.png"
                             />
-                            <img src="/photos/big_desktop.png" width="1440" height="900" alt="big photo" />
+                            <img src="/photos/big_desktop.png" width="1440" height="900" alt="big" />
                         </picture>
                     </div>
                 </section>

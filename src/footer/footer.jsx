@@ -25,9 +25,7 @@ const linkList = links.map(function (link) {
     );
 });
 class Footer extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+
     render() {
         return (
             <div>

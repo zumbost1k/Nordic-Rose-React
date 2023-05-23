@@ -120,7 +120,7 @@ const PostSection = () => {
                                 src={data.post.thumbnail_url}
                                 width="854"
                                 height="570"
-                                alt="main photo"
+                                alt="main"
                             />
                         </picture>
                         <figcaption className="rectangle_caption">
