@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import './section_photo.css';
 import PaginationDisplay from '../pagination/getData';

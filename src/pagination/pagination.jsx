@@ -6,7 +6,7 @@ const PaginationDisplay = (props) => {
             <Pagination
                 className="pagination_data_post"
                 onChange={props.paginationChange}
-                total={props.postsArrayLength}
+                total={props.postsArrayLength+4}
                 current={props.currentPageNumber}
                 pageSize={props.paginationSize}
                 showSizeChanger={false}

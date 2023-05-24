@@ -13,22 +13,26 @@ const GetData = ({ postsNumber, contentToShow }) => {
         fetch(`https://dolphin-app-cbjj4.ondigitalocean.app/users/misha/posts?page=${currentPageNumber}&page_size=${postsNumber}`)
             .then((response) => response.json())
             .then((json) => {
+                setTotalPages(json.total_pages)
                 const currentPostId = parseInt(params.id) || 0
                 const postsWithoutCurrent = json.posts.filter((post) => {
                     return post.id !== currentPostId;
                 });
                 setPosts({ posts: postsWithoutCurrent });
-                setTotalPages(data.total_pages)
+
                 setIsLoading({ process: false })
 
             });
-    }, [params, currentPageNumber]);
+    }, [params, currentPageNumber, postsNumber]);
+
     const perPageChange = (value) => {
         setPaginationSize(value);
-        if (currentPageNumber > totalPages) {
-            setCurrentPageNumber(totalPages);
+        const newPerPage = Math.ceil(data.posts.length / value);
+        if (currentPageNumber > newPerPage) {
+            setCurrentPageNumber(newPerPage);
         }
     }
+
     const paginationChange = (page, pageSize) => {
         setCurrentPageNumber(page);
         setPaginationSize(pageSize)
@@ -43,7 +47,6 @@ const GetData = ({ postsNumber, contentToShow }) => {
         }
         return originalElement;
     }
-    console.log(data)
     if (!isLoading.process) {
         return (<>
             {
@@ -56,10 +59,10 @@ const GetData = ({ postsNumber, contentToShow }) => {
             }
             <PaginationDisplay
                 postsNumber={paginationSize}
-                postsArrayLength={postsNumber}
+                postsArrayLength={totalPages}
                 paginationChange={paginationChange}
                 currentPageNumber={currentPageNumber}
-                paginationSize={totalPages}
+                paginationSize={paginationSize}
                 perPageChange={perPageChange}
                 prevNextArrow={prevNextArrow}
 
