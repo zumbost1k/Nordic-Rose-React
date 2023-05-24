@@ -46,7 +46,7 @@ const ReadNext = () => {
             <>
                 <section className='additional_articles'>
                     <h2 className='read_next'>What to read next</h2>
-                    <PaginationDisplay postsNumber={3} postsArray={data.posts} contentToShow={readNext} />
+                    <PaginationDisplay postsNumber={3} postsArray={data.posts} contentToShow={readNext}  totalPagesProp={totalPages}/>
                 </section>
 
             </>

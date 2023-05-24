@@ -1,19 +1,34 @@
-import React, {  useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './pagination.css'
 import PaginationDisplay from '../pagination/pagination';
-const GetData = ({ postsNumber, postsArray, contentToShow }) => {
+import { useParams } from 'react-router-dom';
+const GetData = ({ postsNumber, contentToShow, totalPagesProp }) => {
     const [paginationSize, setPaginationSize] = useState(postsNumber);
     const [currentPageNumber, setCurrentPageNumber] = useState(1);
+    const params = useParams();
+    const [data, setPosts] = useState({ posts: [] });
+    const [isLoading, setIsLoading] = useState({ process: true });
+    const [totalPages, setTotalPages] = useState(totalPagesProp)
+    useEffect(() => {
+        fetch(`https://dolphin-app-cbjj4.ondigitalocean.app/users/misha/posts?page=${currentPageNumber}&page_size=${paginationSize}`)
+            .then((response) => response.json())
+            .then((json) => {
+                const currentPostId = parseInt(params.id) || 0
+                const postsWithoutCurrent = json.posts.filter((post) => {
+                    return post.id !== currentPostId;
+                });
+                setPosts({ posts: postsWithoutCurrent });
+                setTotalPages(data.total_pages)
+                setIsLoading({ process: false })
+
+            });
+    }, [params, currentPageNumber]);
     const perPageChange = (value) => {
         setPaginationSize(value);
-        const newPerPage = Math.ceil(postsArray.length / value);
-        if (currentPageNumber > newPerPage) {
-            setCurrentPageNumber(newPerPage);
+        if (currentPageNumber > totalPages) {
+            setCurrentPageNumber(totalPages);
         }
     }
-    const getData = (currentPageNumber, pageSize) => {
-        return postsArray.slice((currentPageNumber - 1) * pageSize, currentPageNumber * pageSize);
-    };
     const paginationChange = (page, pageSize) => {
         setCurrentPageNumber(page);
         setPaginationSize(pageSize)
@@ -28,26 +43,29 @@ const GetData = ({ postsNumber, postsArray, contentToShow }) => {
         }
         return originalElement;
     }
+    console.log(data)
+    if (!isLoading.process) {
+        return (<>
+            {
+                data.posts.map((post, index) => {
+                    return (
+                        contentToShow(post)
+                    )
+                })
 
-    return (<>
-        {
-            getData(currentPageNumber, paginationSize).map((post, index) => {
-                return (
-                    contentToShow(post)
-                )
-            })
+            }
+            <PaginationDisplay
+                postsNumber={paginationSize}
+                postsArrayLength={postsNumber}
+                paginationChange={paginationChange}
+                currentPageNumber={currentPageNumber}
+                paginationSize={totalPages}
+                perPageChange={perPageChange}
+                prevNextArrow={prevNextArrow}
 
-        }
-        <PaginationDisplay
-            postsNumber={paginationSize}
-            postsArrayLength={postsArray.length}
-            paginationChange={paginationChange}
-            currentPageNumber={currentPageNumber}
-            paginationSize={paginationSize}
-            perPageChange={perPageChange}
-            prevNextArrow={prevNextArrow}
+            />
+        </>)
+    }
 
-        />
-    </>)
 }
 export default GetData

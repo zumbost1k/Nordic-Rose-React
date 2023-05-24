@@ -38,7 +38,7 @@ const SectionPhoto = () => {
                 <section className='section_with_photo_home_page'>
                     <h2 className='articles_home_page'> All articles</h2>
                     {
-                        <PaginationDisplay postsNumber={2} postsArray={data.post} contentToShow={sectionPhoto} />
+                        <PaginationDisplay postsNumber={2} postsArray={data.post} contentToShow={sectionPhoto} totalPagesProp={totalPages} />
                     }
                 </section>
 
