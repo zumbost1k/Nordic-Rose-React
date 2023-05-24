@@ -2,15 +2,15 @@ import React, { useEffect, useState } from 'react';
 import './pagination.css'
 import PaginationDisplay from '../pagination/pagination';
 import { useParams } from 'react-router-dom';
-const GetData = ({ postsNumber, contentToShow, totalPagesProp }) => {
+const GetData = ({ postsNumber, contentToShow }) => {
     const [paginationSize, setPaginationSize] = useState(postsNumber);
     const [currentPageNumber, setCurrentPageNumber] = useState(1);
     const params = useParams();
     const [data, setPosts] = useState({ posts: [] });
     const [isLoading, setIsLoading] = useState({ process: true });
-    const [totalPages, setTotalPages] = useState(totalPagesProp)
+    const [totalPages, setTotalPages] = useState(0)
     useEffect(() => {
-        fetch(`https://dolphin-app-cbjj4.ondigitalocean.app/users/misha/posts?page=${currentPageNumber}&page_size=${paginationSize}`)
+        fetch(`https://dolphin-app-cbjj4.ondigitalocean.app/users/misha/posts?page=${currentPageNumber}&page_size=${postsNumber}`)
             .then((response) => response.json())
             .then((json) => {
                 const currentPostId = parseInt(params.id) || 0
