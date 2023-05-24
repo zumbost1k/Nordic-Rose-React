@@ -19,12 +19,9 @@ const GetData = ({ postsNumber, contentToShow }) => {
                     return post.id !== currentPostId;
                 });
                 setPosts({ posts: postsWithoutCurrent });
-
                 setIsLoading({ process: false })
-
             });
     }, [params, currentPageNumber, postsNumber]);
-
     const perPageChange = (value) => {
         setPaginationSize(value);
         const newPerPage = Math.ceil(data.posts.length / value);
@@ -65,7 +62,6 @@ const GetData = ({ postsNumber, contentToShow }) => {
                 paginationSize={paginationSize}
                 perPageChange={perPageChange}
                 prevNextArrow={prevNextArrow}
-
             />
         </>)
     }
