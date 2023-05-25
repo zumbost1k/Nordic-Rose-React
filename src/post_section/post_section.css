@@ -71,18 +71,9 @@
     justify-content: space-between;
 }
 
-.github {
+.table_elem {
     padding: 17px 43px 17px 43px;
-}
-
-.instagramm {
-    padding: 17px 43px 17px 43px;
-    border-right: 1px solid #EAEAEA;
     border-left: 1px solid #EAEAEA;
-}
-
-.telegramm {
-    padding: 17px 43px 17px 43px;
 }
 
 .post_body p,
@@ -199,14 +190,16 @@
         display: none;
     }
 
-    .github,
-    .instagramm {
+    .table_elem {
         padding: 17px 38px 17px 39px;
         border-right: 0;
     }
 }
 
 @media (min-width:855px) {
+   .no_border{
+    border-left:0px;
+   }
     .author_of_post_info {
         margin-top: 32px;
     }
