@@ -46,13 +46,13 @@ class Footer extends React.Component {
                                 media='(max-width:854px)'
                                 width='245'
                                 height='35'
-                                srcset='/photos/bottom_rose_mobile.png'
+                                srcSet='/photos/bottom_rose_mobile.png'
                             />
                             <source
                                 media='(min-width:854px)'
                                 width='300'
                                 height='40'
-                                srcset='/photos/bottom_rose_mobile.png'
+                                srcSet='/photos/bottom_rose_mobile.png'
                             />
                             <img
                                 src='/photos/bottom_rose_mobile.png'

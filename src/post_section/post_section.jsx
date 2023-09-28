@@ -108,13 +108,13 @@ const PostSection = () => {
                                 media='(max-width:854px)'
                                 width='375'
                                 height='250'
-                                srcset={data.post.thumbnail_url}
+                                srcSet={data.post.thumbnail_url}
                             />
                             <source
                                 media='(min-width:854px)'
                                 width='854'
                                 height='570'
-                                srcset={data.post.thumbnail_url}
+                                srcSet={data.post.thumbnail_url}
                             />
                             <img
                                 src={data.post.thumbnail_url}

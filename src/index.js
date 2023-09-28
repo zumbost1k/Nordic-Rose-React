@@ -7,6 +7,8 @@ import { HashRouter, Route, Routes } from 'react-router-dom';
 import Footer from './footer/footer';
 import Header from './header/header';
 import ScrollToTop from './scroll_to_top';
+import Authorization from './authorization/authorization';
+import Registration from './registration/registration';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -15,12 +17,12 @@ root.render(
       <ScrollToTop />
       <Header />
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/posts/:id" element={<PostPage />} />
+        <Route path='/posts/:id' element={<PostPage />} />
+        <Route path='/authorization' element={<Authorization />} />
+        <Route path='/registration' element={<Registration />} />
+        <Route path='*' element={<HomePage />} />
       </Routes>
       <Footer />
     </HashRouter>
   </React.StrictMode>
 );
-
-
