@@ -1,0 +1,26 @@
+.button {
+  background-color: #000000;
+  color: white;
+  padding: 17px;
+  white-space: nowrap;
+  font-family: 'SF Pro Display';
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: 0;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #161515;
+}
+
+@media (min-width: 855px) {
+  .button {
+    height: 55px;
+    padding-top: 14px;
+    font-size: 20px;
+  }
+}

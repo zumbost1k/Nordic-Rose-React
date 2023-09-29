@@ -9,20 +9,24 @@ import Header from './header/header';
 import ScrollToTop from './scroll_to_top';
 import Authorization from './authorization/authorization';
 import Registration from './registration/registration';
-
+import { Provider } from 'react-redux';
+import { store } from './store';
+import './firebase';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <HashRouter>
-      <ScrollToTop />
-      <Header />
-      <Routes>
-        <Route path='/posts/:id' element={<PostPage />} />
-        <Route path='/authorization' element={<Authorization />} />
-        <Route path='/registration' element={<Registration />} />
-        <Route path='*' element={<HomePage />} />
-      </Routes>
-      <Footer />
+      <Provider store={store}>
+        <ScrollToTop />
+        <Header />
+        <Routes>
+          <Route path='/posts/:id' element={<PostPage />} />
+          <Route path='/authorization' element={<Authorization />} />
+          <Route path='/registration' element={<Registration />} />
+          <Route path='*' element={<HomePage />} />
+        </Routes>
+        <Footer />
+      </Provider>
     </HashRouter>
   </React.StrictMode>
 );
