@@ -1,10 +1,12 @@
+import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
 import React, { useState } from 'react';
 import './registration.css';
 import { Link } from 'react-router-dom';
 import CustomButton from '../UI/button/button';
 import { useDispatch } from 'react-redux';
 import { setUser } from '../store/slices/userSlice';
-import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
+
+
 
 const Registration = () => {
   const [email, setEmail] = useState('');
@@ -14,20 +16,27 @@ const Registration = () => {
   const checkPasswords = (password1, password2) => {
     return password1 === password2;
   };
+
   const handleRegister = (e) => {
+    e.preventDefault();
+
+    if (!checkPasswords(password, retryPassword)) {
+      return;
+    }
 
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, email, password)
-        .then(({user}) => {
-            console.log(user);
-            dispatch(setUser({
-                email: user.email,
-                id: user.uid,
-                token: user.accessToken,
-            }));
-        })
-        .catch(console.error)
-}
+      .then(({ user }) => {
+        dispatch(
+          setUser({
+            email: user.email,
+            id: user.uid,
+            token: user.accessToken,
+          })
+        );
+      })
+      .catch(console.error);
+  };
   return (
     <section onSubmit={handleRegister} className='registration-section'>
       <div className='registration-block'>

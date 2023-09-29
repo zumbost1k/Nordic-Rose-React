@@ -1,3 +1,4 @@
+import './firebase';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import HomePage from './pages/HomePage';
@@ -11,7 +12,7 @@ import Authorization from './authorization/authorization';
 import Registration from './registration/registration';
 import { Provider } from 'react-redux';
 import { store } from './store';
-import './firebase';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
