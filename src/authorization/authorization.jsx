@@ -10,20 +10,20 @@ const Authorization = () => {
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
   const handleLogIn = (e) => {
-    // e.preventDefault();
-    // const auth = getAuth();
-    // signInWithEmailAndPassword(auth, email, password)
-    //   .then(({ user }) => {
-    //     console.log(user);
-    //     dispatch(
-    //       setUser({
-    //         email: user.email,
-    //         id: user.uid,
-    //         token: user.accessToken,
-    //       })
-    //     );
-    //   })
-    //   .catch(() => alert('Invalid user!'));
+    e.preventDefault();
+    const auth = getAuth();
+    signInWithEmailAndPassword(auth, email, password)
+      .then(({ user }) => {
+        console.log(user);
+        dispatch(
+          setUser({
+            email: user.email,
+            id: user.uid,
+            token: user.accessToken,
+          })
+        );
+      })
+      .catch(() => alert('Invalid user!'));
   };
   return (
     <section className='registration-section'>
