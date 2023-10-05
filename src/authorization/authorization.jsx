@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom';
 import CustomButton from '../UI/button/button';
 import { useDispatch } from 'react-redux';
 import { setUser } from '../store/slices/userSlice';
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../firebase';
 const Authorization = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
   const handleLogIn = (e) => {
     e.preventDefault();
-    const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
       .then(({ user }) => {
         console.log(user);

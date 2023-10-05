@@ -1,12 +1,11 @@
-import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 import React, { useState } from 'react';
 import './registration.css';
 import { Link } from 'react-router-dom';
 import CustomButton from '../UI/button/button';
 import { useDispatch } from 'react-redux';
 import { setUser } from '../store/slices/userSlice';
-
-
+import { auth } from '../firebase';
 
 const Registration = () => {
   const [email, setEmail] = useState('');
@@ -24,7 +23,6 @@ const Registration = () => {
       return;
     }
 
-    const auth = getAuth();
     createUserWithEmailAndPassword(auth, email, password)
       .then(({ user }) => {
         dispatch(
