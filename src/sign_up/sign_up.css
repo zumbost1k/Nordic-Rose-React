@@ -51,7 +51,7 @@
     outline: none;
 }
 
-::placeholder {
+.input_mail::placeholder {
     color: #000000;
     padding-left: 12px;
     font-family: 'SF Pro Display';

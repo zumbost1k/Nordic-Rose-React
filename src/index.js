@@ -7,20 +7,26 @@ import { HashRouter, Route, Routes } from 'react-router-dom';
 import Footer from './footer/footer';
 import Header from './header/header';
 import ScrollToTop from './scroll_to_top';
+import Authorization from './authorization/authorization';
+import Registration from './registration/registration';
+import { Provider } from 'react-redux';
+import { store } from './store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <HashRouter>
-      <ScrollToTop />
-      <Header />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/posts/:id" element={<PostPage />} />
-      </Routes>
-      <Footer />
+      <Provider store={store}>
+        <ScrollToTop />
+        <Header />
+        <Routes>
+          <Route path='/posts/:id' element={<PostPage />} />
+          <Route path='/authorization' element={<Authorization />} />
+          <Route path='/registration' element={<Registration />} />
+          <Route path='*' element={<HomePage />} />
+        </Routes>
+        <Footer />
+      </Provider>
     </HashRouter>
   </React.StrictMode>
 );
-
-
