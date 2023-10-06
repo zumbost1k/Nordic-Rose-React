@@ -17,6 +17,10 @@
   background-color: #161515;
 }
 
+.button:disabled {
+  background-color: #535353;
+}
+
 @media (min-width: 855px) {
   .button {
     height: 55px;

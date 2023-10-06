@@ -6,6 +6,7 @@ import CustomButton from '../UI/button/button';
 import { useDispatch } from 'react-redux';
 import { setUser } from '../store/slices/userSlice';
 import { auth } from '../firebase';
+import { useValid } from '../hooks/use-valid';
 
 const Registration = () => {
   const [email, setEmail] = useState('');
@@ -15,13 +16,13 @@ const Registration = () => {
   const checkPasswords = (password1, password2) => {
     return password1 === password2;
   };
+  const isPasswordValid = useValid(password, ['lengthcheck']);
+  const isEmailValid = useValid(email, ['isempty']);
+  const disabledState =
+    !checkPasswords(password, retryPassword) && isPasswordValid && isEmailValid;
 
   const handleRegister = (e) => {
     e.preventDefault();
-
-    if (!checkPasswords(password, retryPassword)) {
-      return;
-    }
 
     createUserWithEmailAndPassword(auth, email, password)
       .then(({ user }) => {
@@ -94,8 +95,16 @@ const Registration = () => {
               placeholder='Enter your password...'
               type='password'
             />
+            {!checkPasswords(password, retryPassword) && (
+              <label
+                htmlFor='confirm-password'
+                className='input-caption registration-input__input-caption_red'
+              >
+                Passwords must match
+              </label>
+            )}
           </div>
-          <CustomButton text={'sign up'} />
+          <CustomButton disabledState={disabledState} text={'sign up'} />
         </form>
       </div>
     </section>
