@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
 import './authorization.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import CustomButton from '../UI/button/button';
 import { useDispatch } from 'react-redux';
 import { setUser } from '../store/slices/userSlice';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase';
+import { useValid } from '../hooks/use-valid';
 const Authorization = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const isPasswordValid = useValid(password, ['lengthcheck']);
+  const isEmailValid = useValid(email, ['isempty']);
+  const disabledState = isPasswordValid && isEmailValid;
   const handleLogIn = (e) => {
     e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
@@ -22,6 +27,7 @@ const Authorization = () => {
             token: user.accessToken,
           })
         );
+        navigate('/home');
       })
       .catch(() => alert('Invalid user!'));
   };
@@ -72,7 +78,7 @@ const Authorization = () => {
               type='password'
             />
           </div>
-          <CustomButton text={'sign in'} />
+          <CustomButton disabledState={!disabledState} text={'sign in'} />
         </form>
       </div>
     </section>

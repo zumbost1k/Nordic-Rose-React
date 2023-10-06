@@ -18,7 +18,7 @@ const links = [
 const linkList = links.map(function (link) {
     return (
         <li>
-            <Link className='link' to={link.href}>
+            <Link className='link' target="_blank" to={link.href}>
                 {link.name}
             </Link>
         </li>

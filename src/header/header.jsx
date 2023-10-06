@@ -1,14 +1,22 @@
 import './header.css';
 import React from 'react';
 import { Link } from 'react-router-dom';
-const links = ['BLOG', 'ABOUT', 'LINKS'];
-const linksList = links.map(function (link) {
+import { useAuth } from '../hooks/use-auth';
+const links = ['BLOG', 'ABOUT', 'LINKS', 'PROJECTS'];
+const LinksList = ({ link }) => {
+  const { isAuth } = useAuth();
+  console.log(isAuth);
+  const redirectLinkActive = (e) => {
+    if (!isAuth) {
+      e.preventDefault();
+    }
+  };
   return (
-    <Link className='menu_link' to='/'>
+    <Link onClick={redirectLinkActive} className='menu_link' to='/home'>
       {link}
     </Link>
   );
-});
+};
 const Header = () => {
   return (
     <div>
@@ -37,18 +45,16 @@ const Header = () => {
           </h1>
         </div>
         <div className='desktop_menu'>
-          {linksList}
-          <Link className='menu_link' to='/authorization'>
-            authorization
-          </Link>
+          {links.map((link) => {
+            return <LinksList link={link} />;
+          })}
         </div>
         <div className='top_padding_burger'>
           <img width='25' height='16' src='/photos/burger.png' alt='burger' />
           <div className='hover_menu'>
-            {linksList}{' '}
-            <Link className='menu_link' to='/authorization'>
-              authorization
-            </Link>
+            {links.map((link) => {
+              return <LinksList link={link} />;
+            })}
           </div>
         </div>
       </header>

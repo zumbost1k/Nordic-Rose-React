@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import HomePage from './pages/HomePage';
 import PostPage from './pages/PostPage';
 import './style_reset.css';
-import { HashRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
 import Footer from './footer/footer';
 import Header from './header/header';
 import ScrollToTop from './scroll_to_top';
@@ -23,7 +23,8 @@ root.render(
           <Route path='/posts/:id' element={<PostPage />} />
           <Route path='/authorization' element={<Authorization />} />
           <Route path='/registration' element={<Registration />} />
-          <Route path='*' element={<HomePage />} />
+          <Route path='/home' element={<HomePage />} />
+          <Route path='*' element={<Navigate to='/registration' replace />} />
         </Routes>
         <Footer />
       </Provider>

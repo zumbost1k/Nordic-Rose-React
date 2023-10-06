@@ -1,7 +1,7 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import React, { useState } from 'react';
 import './registration.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import CustomButton from '../UI/button/button';
 import { useDispatch } from 'react-redux';
 import { setUser } from '../store/slices/userSlice';
@@ -13,6 +13,7 @@ const Registration = () => {
   const [password, setPassword] = useState('');
   const [retryPassword, setRetryPassword] = useState('');
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const checkPasswords = (password1, password2) => {
     return password1 === password2;
   };
@@ -33,6 +34,7 @@ const Registration = () => {
             token: user.accessToken,
           })
         );
+        navigate('/home');
       })
       .catch(console.error);
   };
