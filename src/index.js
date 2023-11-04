@@ -11,6 +11,12 @@ import Authorization from './authorization/authorization';
 import Registration from './registration/registration';
 import { Provider } from 'react-redux';
 import { store } from './store';
+import { useAuth } from './hooks/use-auth';
+
+const PrivateRoute = ({ children }) => {
+  const { isAuth } = useAuth();
+  return isAuth ? children : <Navigate to='/registration' />;
+};
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -20,10 +26,16 @@ root.render(
         <ScrollToTop />
         <Header />
         <Routes>
-          <Route path='/posts/:id' element={<PostPage />} />
           <Route path='/authorization' element={<Authorization />} />
           <Route path='/registration' element={<Registration />} />
-          <Route path='/home' element={<HomePage />} />
+          <Route
+            path='/posts/:id'
+            element={<PrivateRoute children={<PostPage />} />}
+          />
+          <Route
+            path='/home'
+            element={<PrivateRoute children={<HomePage />} />}
+          />
           <Route path='*' element={<Navigate to='/registration' replace />} />
         </Routes>
         <Footer />
