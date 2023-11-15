@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './post_section.css';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 
 const links = [
   {
@@ -58,6 +58,11 @@ function Links({ link }) {
 const PostSection = () => {
   const params = useParams();
   const current = params.id;
+  const navigate = useNavigate();
+  const [filter, setFilter] = useState('');
+  useEffect(() => {
+    navigate(`?tag=${filter}`);
+  }, [filter, navigate]);
   const [data, setPosts] = useState({ post: {} });
   useEffect(() => {
     fetch(`https://dolphin-app-cbjj4.ondigitalocean.app/posts/${current}`)
@@ -152,9 +157,14 @@ const PostSection = () => {
                   Tags:{' '}
                   {data.post.all_tags_list.map((tag) => {
                     return (
-                      <Link to='/' className='black_link'>
+                      <span
+                        onClick={(e) => {
+                          setFilter(tag);
+                        }}
+                        className='black_link'
+                      >
                         {tag + ' '}
-                      </Link>
+                      </span>
                     );
                   })}{' '}
                 </p>
