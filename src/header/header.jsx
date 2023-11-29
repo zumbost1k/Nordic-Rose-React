@@ -17,7 +17,7 @@ const Header = () => {
       <div>
         <header className='header'>
           <div className='top_padding_nordic'>
-            <h1>
+            <Link to='home'>
               <picture>
                 <source
                   media='(max-width:854px)'
@@ -37,7 +37,7 @@ const Header = () => {
                   alt='NORDIC ROSE'
                 />
               </picture>
-            </h1>
+            </Link>
           </div>
           <div className='desktop_menu'>
             {links.map((link) => {
