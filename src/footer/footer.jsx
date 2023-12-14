@@ -18,7 +18,7 @@ const links = [
 const linkList = links.map(function (link) {
     return (
         <li>
-            <Link className='link' to={link.href}>
+            <Link className='link' target="_blank" to={link.href}>
                 {link.name}
             </Link>
         </li>
@@ -46,13 +46,13 @@ class Footer extends React.Component {
                                 media='(max-width:854px)'
                                 width='245'
                                 height='35'
-                                srcset='/photos/bottom_rose_mobile.png'
+                                srcSet='/photos/bottom_rose_mobile.png'
                             />
                             <source
                                 media='(min-width:854px)'
                                 width='300'
                                 height='40'
-                                srcset='/photos/bottom_rose_mobile.png'
+                                srcSet='/photos/bottom_rose_mobile.png'
                             />
                             <img
                                 src='/photos/bottom_rose_mobile.png'

@@ -5,13 +5,13 @@ import ReadNext from '../read_next/read_next.jsx';
 import SignUp from '../sign_up/sign_up.jsx';
 
 function PostPage() {
-    return (<React.StrictMode>
-       
-        <TopSectionPost />
-        <PostSection />
-        <ReadNext />
-        <SignUp />
-        
-    </React.StrictMode>)
+  return (
+    <React.StrictMode>
+      <TopSectionPost />
+      <PostSection />
+      <ReadNext />
+      <SignUp />
+    </React.StrictMode>
+  );
 }
 export default PostPage;

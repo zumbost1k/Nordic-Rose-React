@@ -1,0 +1,96 @@
+.registration-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 30px;
+}
+
+.registration-block {
+  border: 2px solid #000000;
+  border-top: 10px solid #000000;
+  padding: 40px;
+}
+
+.reg-header {
+  font-family: 'SF Pro Display';
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 31px;
+}
+
+.registration-section__reg-header {
+  padding-top: 42px;
+}
+
+.reg-text {
+  font-family: 'New York Medium';
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 170%;
+}
+
+.registration-section__reg-text {
+  width: 250px;
+  padding-top: 24px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.registration-input {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.registration-section__form {
+  padding-top: 35px;
+}
+
+.input-caption {
+  font-family: 'New York Medium';
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 170%;
+}
+
+.input {
+  width: 250px;
+  border: 2px solid #000000;
+  padding: 15px 12px;
+}
+
+.input::placeholder {
+  color: #5b5b5b;
+  font-family: 'SF Pro Display';
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+@media (min-width: 855px) {
+  .input-caption {
+    font-size: 16px;
+  }
+
+  .input {
+    width: 400px;
+  }
+
+  .form {
+    gap: 40px;
+  }
+  .reg-text {
+    font-size: 20px;
+  }
+  .reg-header {
+    font-size: 32px;
+  }
+  .registration-section__reg-text {
+    width: 400px;
+  }
+}
