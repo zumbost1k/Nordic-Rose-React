@@ -12,18 +12,21 @@ const SignUp = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (EMAIL_REGEXP.test(email)) {
-      fetch(
-        'https://dolphin-app-cbjj4.ondigitalocean.app/users/misha/subscribers',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ email }),
-        }
-      ).finally(setEmail(''))
+      try {
+        fetch(
+          'https://study-group-backend.onrender.com/users/zumbost1k/subscribers',
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email }),
+          }
+        ).finally(setEmail(''));
+      } catch (error) {
+        console.log(error);
+      }
     }
-    
   };
 
   return (

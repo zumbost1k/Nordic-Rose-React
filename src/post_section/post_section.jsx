@@ -65,7 +65,7 @@ const PostSection = () => {
   }, [filter, navigate]);
   const [data, setPosts] = useState({ post: {} });
   useEffect(() => {
-    fetch(`https://dolphin-app-cbjj4.ondigitalocean.app/posts/${current}`)
+    fetch(`https://study-group-backend.onrender.com/posts/${current}`)
       .then((response) => response.json())
       .then((data) => setPosts({ post: data }));
   }, [current]);
