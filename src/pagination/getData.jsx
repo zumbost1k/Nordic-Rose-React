@@ -21,6 +21,7 @@ const GetData = ({ postsNumber, contentToShow }) => {
     )
       .then((response) => response.json())
       .then((json) => {
+        console.log(json);
         setTotalPages(json.total_pages);
         const currentPostId = parseInt(params.id) || 0;
         const postsWithoutCurrent = json.posts.filter((post) => {
