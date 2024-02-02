@@ -16,20 +16,24 @@ const GetData = ({ postsNumber, contentToShow }) => {
   const currentTag = tag ? `&tag=${tag}` : '';
 
   useEffect(() => {
-    fetch(
-      `https://dolphin-app-cbjj4.ondigitalocean.app/users/misha/posts?page=${currentPageNumber}&page_size=${postsNumber}${currentTag}`
-    )
-      .then((response) => response.json())
-      .then((json) => {
-        console.log(json);
-        setTotalPages(json.total_pages);
-        const currentPostId = parseInt(params.id) || 0;
-        const postsWithoutCurrent = json.posts.filter((post) => {
-          return post.id !== currentPostId;
+    try {
+      fetch(
+        `https://nordic-rose-server-production.up.railway.app/api/post/?page=${currentPageNumber}&limit=${postsNumber}${currentTag}`,
+        { method: 'GET' }
+      )
+        .then((response) => response.json())
+        .then((json) => {
+          setTotalPages(json.count);
+          const currentPostId = parseInt(params.id) || 0;
+          const postsWithoutCurrent = json.rows.filter((post) => {
+            return post.id !== currentPostId;
+          });
+          setPosts({ posts: postsWithoutCurrent });
+          setIsLoading({ process: false });
         });
-        setPosts({ posts: postsWithoutCurrent });
-        setIsLoading({ process: false });
-      });
+    } catch (error) {
+      console.log(error);
+    }
   }, [params, currentPageNumber, postsNumber, currentTag]);
   const perPageChange = (value) => {
     setPaginationSize(value);
