@@ -65,12 +65,15 @@ const PostSection = () => {
   }, [filter, navigate]);
   const [data, setPosts] = useState({ post: {} });
   useEffect(() => {
-    fetch(`https://study-group-backend.onrender.com/posts/${current}`)
+    fetch(
+      `https://nordic-rose-server-production.up.railway.app/api/post/${current}`,
+      { method: 'GET' }
+    )
       .then((response) => response.json())
       .then((data) => setPosts({ post: data }));
   }, [current]);
   if (data.post.id) {
-    const formattedDate = new Date(data.post.created_at).toLocaleDateString(
+    const formattedDate = new Date(data.post.createdAt).toLocaleDateString(
       'en-US',
       { year: 'numeric', month: 'short', day: 'numeric' }
     );
@@ -95,8 +98,7 @@ const PostSection = () => {
                     </time>
                     &nbsp;·&nbsp;
                     {Math.trunc(
-                      data.post.content.replace(/(<([^>]+)>)/gi, '').length /
-                        250
+                      data.post.text.replace(/(<([^>]+)>)/gi, '').length / 250
                     )}
                     &nbsp; min read
                   </p>
@@ -117,30 +119,39 @@ const PostSection = () => {
                 media='(max-width:854px)'
                 width='375'
                 height='250'
-                srcSet={data.post.thumbnail_url}
+                srcSet={
+                  'https://nordic-rose-server-production.up.railway.app/' +
+                  data.post.img
+                }
               />
               <source
                 media='(min-width:854px)'
                 width='854'
                 height='570'
-                srcSet={data.post.thumbnail_url}
+                srcSet={
+                  'https://nordic-rose-server-production.up.railway.app/' +
+                  data.post.img
+                }
               />
               <img
-                src={data.post.thumbnail_url}
+                src={
+                  'https://nordic-rose-server-production.up.railway.app/' +
+                  data.post.img
+                }
                 width='854'
                 height='570'
                 alt='main'
               />
             </picture>
             <figcaption className='rectangle_caption'>
-              {data.post.title}
+              {data.post.header}
             </figcaption>
           </div>
           <div className='second_section_block'>
             {
               <div
                 className='post_body'
-                dangerouslySetInnerHTML={{ __html: data.post.content }}
+                dangerouslySetInnerHTML={{ __html: data.post.text }}
               />
             }
             <div className='article_section_footer'>
@@ -152,10 +163,10 @@ const PostSection = () => {
                   ))}
                 </tr>
               </table>
-              {data.post.all_tags_list.length !== 0 ? (
+              {data.post.tags.length !== 0 ? (
                 <p className='section_footer_text tags'>
                   Tags:{' '}
-                  {data.post.all_tags_list.map((tag) => {
+                  {data.post.tags.map((tag) => {
                     return (
                       <span
                         onClick={(e) => {

@@ -14,13 +14,13 @@ const SignUp = () => {
     if (EMAIL_REGEXP.test(email)) {
       try {
         fetch(
-          'https://study-group-backend.onrender.com/users/zumbost1k/subscribers',
+          'https://nordic-rose-server-production.up.railway.app/api/email/',
           {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ email }),
+            body: JSON.stringify({ text: email }),
           }
         ).finally(setEmail(''));
       } catch (error) {
@@ -36,7 +36,7 @@ const SignUp = () => {
         If you want relevant updates occasionally, sign up for the private
         newsletter. Your email is never shared.
       </p>
-      <form onSubmit={handleSubmit} className='mail'>
+      <form className='mail'>
         <input
           className='input_mail'
           placeholder='Enter your email...'
@@ -44,11 +44,7 @@ const SignUp = () => {
           value={email}
           onChange={handleChange}
         />
-        <button
-          type='submit'
-          className='mail_text'
-          onClick={(event) => event.preventDefault()}
-        >
+        <button type='submit' className='mail_text' onClick={handleSubmit}>
           sign up
         </button>
       </form>

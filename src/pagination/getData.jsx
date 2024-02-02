@@ -14,17 +14,18 @@ const GetData = ({ postsNumber, contentToShow }) => {
   const urlParams = new URLSearchParams(location.search);
   const tag = urlParams.get('tag');
   const currentTag = tag ? `&tag=${tag}` : '';
-  //
+
   useEffect(() => {
     try {
       fetch(
-        `https://study-group-backend.onrender.com/users/zumbost1k/posts?page=${currentPageNumber}&page_size=${postsNumber}${currentTag}`
+        `https://nordic-rose-server-production.up.railway.app/api/post/?page=${currentPageNumber}&limit=${postsNumber}${currentTag}`,
+        { method: 'GET' }
       )
         .then((response) => response.json())
         .then((json) => {
-          setTotalPages(json.total_pages);
+          setTotalPages(json.count);
           const currentPostId = parseInt(params.id) || 0;
-          const postsWithoutCurrent = json.posts.filter((post) => {
+          const postsWithoutCurrent = json.rows.filter((post) => {
             return post.id !== currentPostId;
           });
           setPosts({ posts: postsWithoutCurrent });
