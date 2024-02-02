@@ -12,18 +12,21 @@ const SignUp = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (EMAIL_REGEXP.test(email)) {
-      fetch(
-        'https://dolphin-app-cbjj4.ondigitalocean.app/users/misha/subscribers',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ email }),
-        }
-      ).finally(setEmail(''))
+      try {
+        fetch(
+          'https://nordic-rose-server-production.up.railway.app/api/email/',
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ text: email }),
+          }
+        ).finally(setEmail(''));
+      } catch (error) {
+        console.log(error);
+      }
     }
-    
   };
 
   return (
@@ -33,7 +36,7 @@ const SignUp = () => {
         If you want relevant updates occasionally, sign up for the private
         newsletter. Your email is never shared.
       </p>
-      <form onSubmit={handleSubmit} className='mail'>
+      <form className='mail'>
         <input
           className='input_mail'
           placeholder='Enter your email...'
@@ -41,11 +44,7 @@ const SignUp = () => {
           value={email}
           onChange={handleChange}
         />
-        <button
-          type='submit'
-          className='mail_text'
-          onClick={(event) => event.preventDefault()}
-        >
+        <button type='submit' className='mail_text' onClick={handleSubmit}>
           sign up
         </button>
       </form>
